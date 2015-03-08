@@ -1,0 +1,402 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{times}			% Usa a fonte Times
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}			% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{listings}			% para inserir código fonte
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage{titlesec}
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% altera o espacamento depois do número de cada secao, subsecao, etc
+\titleformat{\section}
+  {\normalfont\normalsize}{}{0pt}{\thesection\space}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{}{0pt}{\thesubsection\space}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize}{}{0pt}{\thesubsubsection\space}
+\titleformat{\paragraph}
+  {\normalfont\normalsize\itshape}{}{0pt}{\theparagraph\space}
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% **************************************************
+% Informações que devem ser alteradas
+% **************************************************
+\titulo{\uppercase{Uma proposta de interface do cliente de torrent Transmission baseado no GTK HIG 3.14}}
+\autor{\uppercase{Derek Willian Stavis}}
+\orientador{Aline Cristina Antoneli de Oliveira}
+\orientadortcc{Prof. \imprimirorientador, Dr. (SENAI/SC)}
+\coordenador{Prof. Luciana Schmitz, Esp. (SENAI/SC)}
+\coordenadortcc{Profa. Jaqueline Voltolini de Almeida, Me. (SENAI/SC)}
+\examinador{Prof. Fulado de tal, Me. (SENAI/SC)}
+\preambulo{Trabalho de Conclusão de Curso apresentado à Banca Examinadora do Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia do SENAI Florianópolis como requisito parcial para obtenção do Grau de Tecnólogo em Análise e Desenvolvimento de Sistemas.}
+\proforientador{Professor Orientador: \imprimirorientador.}
+\datadefesa{\uppercase{28 de Novembro de 2014}}
+\local{Florianópolis/SC}
+\data{2014}
+% **************************************************
+
+\instituicao{%
+  SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL 
+  \par
+  FACULDADE DE TECNOLOGIA SENAI/SC FLORIANÓPOLIS
+  \par
+  CURSO SUPERIOR DE TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,      	% false: boxed links; true: colored links
+		linkcolor=black,	% color of internal links
+		citecolor=black,        % color of links to bibliography
+		filecolor=magenta,      % color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+%\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+\imprimircapa
+\imprimirfolhaderosto*
+
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\ABNTEXchapterfont\bfseries\normalsize\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\normalsize\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+        \imprimirpreambulo
+    \vspace*{\fill}
+        
+   APROVADA PELA {\bfseries{COMISSÃO EXAMINADORA}}
+   \par
+   EM FLORIANÓPOLIS, \bfseries{\imprimirdatadefesa}
+   \end{center}
+
+   \assinatura{\imprimircoordenador \\ Coordenador do Curso} 
+   \assinatura{\imprimircoordenadortcc \\ Coordenador de TCC} 
+   \assinatura{\imprimirorientadortcc \\ Orientador} 
+   \assinatura{\imprimirexaminador \\ Examinador}
+   \begin{center}
+    \vspace*{1cm}
+  \end{center}
+\end{folhadeaprovacao}
+
+% Arquivos que devem ser alterados
+\include{content/dedicatoria}
+\include{content/agradecimentos}
+\include{content/epigrafe}
+\include{content/resumo}
+\include{content/abstract}
+
+% lista de figuras
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\clearpage
+
+% inserir lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\clearpage
+
+% Arquivos que devem ser alterados
+\include{content/siglas}
+\include{content/simbolos}
+
+% inserir o sumario
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\clearpage
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% PARTE - preparação da pesquisa
+% ----------------------------------------------------------
+%\part{Preparação da pesquisa}
+
+
+% Informações que devem ser alteradas
+% **************************************************
+% ---
+% Introdução
+% ---
+\chapter{INTRODUÇÃO}
+
+Este documento e seu código-fonte são exemplos de referência de uso da classe
+\textsf{abntex2} e do pacote \textsf{abntex2cite}.
+
+\section{JUSTIFICATIVA}
+
+De-se justificar a escolha do tema, a finalidade, relevância e foco do assunto.
+
+\section{OBJETIVOS}
+
+Nesta seção são apresentados os objetivos do presente trabalho.
+
+\subsection{Objetivo geral}
+
+Estudar o funcionamento da ferramenta \LaTeX.
+
+\subsection{Objetivos específicos}
+
+Aqui são definidos os objetivos específicos do trabalho.
+
+\section{METODOLOGIA}
+
+Dizer qual metodologia de trabalho será usada.
+
+\section{ESTRUTURA DO TRABALHO}
+
+Explicar como o trabalho está estruturado.
+
+% ---
+% Capitulo de revisão de literatura
+% ---
+\chapter{REVISÃO DA LITERATURA}\label{cap-revisao}
+
+Neste capítulo são apresentados trabalhos relacionados que sejam relevantes para a pesquisa. Isso é um exemplo de citação \cite[p. 10]{van86}. Os dados de cada citação devem ser inseridos no arquivo \textit{content/referencias.bib}.
+
+A seguir é apresentado uma citação direta com mais de três linhas:
+
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto utilizado e sem as aspas. No caso de documentos datilografados, deve-se observar apenas o recuo \cite[p. 10]{NBR10520:2002}.
+\end{citacao}
+
+Na sequência é apresentado um exemplo simples de como escrever o TCC no \LaTeX. Primeiramente os campos no início desse arquivo devem ser preenchidos (título do trabalho, nome do autor, etc). Na sequência, o texto dos capítulos deve ser inserido, conforme esse exemplo. O arquivo de referências bibliográficas também deve ser gerado, conforme exemplo citado acima. Para ``compilar'' esse modelo e gerar o arquivo no formato ``.pdf'', no GNU/Linux, os seguintes comandos devem ser executados: \textbf{pdflatex modelo-tcc-senai.tex}, \textbf{bibtex modelo-tcc-senai} e mais duas vezes \textbf{pdflatex modelo-tcc-senai.tex}. 
+
+Veja um exemplo de nota de rodapé\footnote{Isso é uma nota de rodapé.}.
+
+Podemos também inserir tabelas da seguinte forma. A Tabela \ref{tab-exemplo} mostra um exemplo de tabela.
+
+\begin{table}[h!]
+\center\scriptsize
+\caption{\textbf{Tabela exemplo}}
+\begin{tabular}{|l|c|c|} \hline \label{tab-exemplo}
+\textbf{ Característica}	& \textbf{Valor} 	& \textbf{ Comportamento} \\ \hline
+Característica A 		& 8			& Bom \\ \hline
+Característica B		& 10			&Ótimo \\ \hline
+\textbf{Situação}		& \multicolumn{2}{c|}{\textit{Aprovado!}} \\ \hline
+\end{tabular}
+\fonte{do autor}
+\end{table}
+
+Na sequência inserimos uma figura para exemplo. A Figura \ref{fig-exemplo} é um exemplo de como devem ser inseridas as figuras no documento.
+
+\begin{figure}[htb]
+  \begin{center}
+    \caption{\textbf{Figura de exemplo}}\label{fig-exemplo}
+    \includegraphics [scale=0.6]{logo-senai.jpg}
+    \fonte{SENAI}\label{fig-exemplo}
+  \end{center}
+\end{figure}
+
+\section{NOVA SEÇÃO}
+
+Exemplo de uma nova seção.
+
+\subsection{Nova Subseção}
+
+Exemplo de uma subseção.
+
+\subsubsection{Nova Subsubseção}
+
+Exemplo de uma nova subsubseção.
+
+
+
+\paragraph{Nova Subsubsubseção}
+
+Exemplo de uma nova subsubsubseção.
+
+% ---
+% Procedimentos metodológicos
+% ---
+\chapter{PROCEDIMENTOS METODOLÓGICOS}
+
+Descrevem-se, neste capítulo, os procedimentos metodológicos que nortearam a pesquisa.
+
+% ---
+% Resultados
+% ---
+\chapter{RESULTADOS E DISCUSSÕES}
+
+Neste capítulo são apresentados os resultados da pesquisa descrita no capítulo \ref{cap-revisao}.
+
+\begin{figure}[htb]
+  \begin{center}
+    \caption{\textbf{Figura de exemplo 2}}\label{fig-exemplo1}
+    \includegraphics [scale=0.6]{logo-senai.jpg}
+    \fonte{SENAI}\label{fig-exemplo1}
+  \end{center}
+\end{figure}
+% ---
+% Conclusão
+% ---
+\chapter{CONCLUSÃO}
+
+As conclusão do trabalho são apresentadas aqui.
+
+% **************************************************
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+% \postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% Arquivos que devem ser alterados
+\bibliography{content/referencias}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% Informações que devem ser alteradas
+% **************************************************
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+\chapter{Código fonte}
+Código de minha autoria. O apêndice é opcional ao TCC e deve ser elaborado pelo próprio autor. Destina-se a complementar as ideias, sem prejuízo do tema do trabalho. Segue um exemplo:
+
+\scriptsize
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+  printf("Ola mundo !\n");
+  return 0;
+}
+\end{lstlisting}
+
+\end{apendicesenv}
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+\begin{anexosenv}
+
+\chapter{Pesquisa IBGE}
+O anexo é opcional ao TCC e são informações não elaboradas pelo próprio autor, mas que tem como objetivo complementar as ideias, sem prejuízo do tema do relatório.
+
+\end{anexosenv}
+
+% Etiqueta para auxiliar contagem do numero de paginas do texto e dos elementos pos-textuais
+\label{nropaginas}
+
+% **************************************************
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+\printindex
+
+\end{document}
