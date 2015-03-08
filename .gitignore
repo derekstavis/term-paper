@@ -1,5 +1,8 @@
 *.aux
 *.log
 *.swp
+*.lof
+*.lot
+*.toc
 
 *.synctex.gz
