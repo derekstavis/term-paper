@@ -219,28 +219,210 @@
 % ---
 \chapter{INTRODUÇÃO}
 
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}.
+\section{Interfaces gráficas}
+O desenvolvimento de mecanismos que automatizam tarefas existe desde a idade das
+pedras, onde hominídeos produziam ferramentas para auxílio próprio. A 
+transversalidade do conhecimento e da experimentação nos levou a descoberta de 
+novas metodologias e o aperfeiçoamento de técnicas, consequentemente modificando
+a forma com que o ser humano interage com o mundo.
+
+O conceito de interface é extremamente amplo, e foi largamente difundido com o 
+início dos estudos de interação humano-máquina. O avanço da industrialização
+permitiu com que máquinas extremamente complexas substituíssem seres humanos nas
+tarefas mais difíceis,  deixando estes, seus operadores, apenas com a 
+responsabilidade de pilotá-las de forma simples e segura.
+
+O advento de tecnologias multimídias interativas como computadores, celulares e
+tablets elevou o patamar da criação de interfaces e gestão de tarefas ao estado
+da arte, agregando conhecimentos transversais de artistas visuais a músicos.
+
+Entretanto, a criação de “interfaces com o usuário ainda está mais para arte do
+que para ciência. A maior parte do design ou redesign é baseado em estudos
+empíricos ou protótipos, e ainda há muito pouca compreensão teórica ou de
+engenharia de como conduzir o processo de design e produzir bons designs pela
+primeira vez” [2].
+
+O primeiro conceito científico de gerenciamento de tarefas através da
+sobreposição de janelas data de 1969, na tese de Ph.D. de Alan Kay. A
+implementação de seu conceito, vista pela primeira vez em funcionamento no
+sistema do Xerox PARC, é largamente utilizada até hoje por grandes sistemas
+tanto comerciais quanto de código aberto, como Windows, OS X, GNOME, KDE.
+
+Interfaces gráficas modernas foram alcançadas através da associação entre
+hardware e software, utilizando de diversos dispositivos de entrada e saída,
+além de  inúmeras camadas de software, com o intuito de promover usabilidade e
+fácil adaptação.
+
+Dispositivos de entrada transformam coordenadas do mundo real para o mundo
+virtual, registrando condições externas que podem ser modificadas através da
+interação com um ou mais atores. Dispositivos de entrada comuns são mouse, tela
+de toque, teclado, etc. 
+
+Dispositivos de saída projetam informações geradas por um sistema computacional
+e seu caráter é geralmente baseado nos sentidos: Visão, audição, tato. O
+dispositivo de saída mais comum é o monitor, que tem por finalidade projetar
+imagens compatíveis com a capacidade humana de visão.
+
+\section{Gerenciadores de Janelas e Toolkits}
+
+Uma das responsabilidades de um gerenciadores de janelas é disponibilizar ou
+consumir áreas de desenho e exibí-las em um dispositivo de saída de vídeo. Estas
+áreas de desenho são conhecidas como janelas.
+
+Um gerenciador de janelas moderno também tem por finalidade coordenar a exibição
+deste conjunto de janelas em um conjunto de monitores, escutar por eventos de
+entrada (mouse, teclado) e informar os responsáveis pelas janelas sobre
+alterações no layout de tela (dimensões da tela, dimensões da janela, espaço de
+cor).
+
+Gerenciadores de janelas, porém, não tem por responsabilidade preencher as áreas
+de desenho com gráficos, e como suas APIs operam geralmente a nível de pixel, a
+tarefa de escrever um programa gráfico acaba sendo demorada e entediante. Além
+disso, se cada desenvolvedor criasse seus próprios componentes, seria 
+praticamente impossível disponibilizar uma experiência consistente ao usuário.[3]
+
+Para solucionar este problema ferramentas conhecidas como toolkits foram criadas
+sobre as abstrações disponibilizadas pelos WMs. Sua finalidade é esconder
+características de baixo nível, disponibilizando uma fachada homogênea e
+portável para o desenvolvedor de software, além de comportamento e experiência
+visual consistente para o usuário final.
+
+As responsabilidades de um toolkit inclui desenhar elementos de interface
+gráfica como texto, botões, imagens, barras de progresso, etc, de acordo com um
+ou mais estilos visuais. Também é sua responsabilidade processar eventos de um
+ou mais dispositivos de entrada (mouse, teclado, painel de toque) verificar a
+colisão de um evento com elementos de interface gráfica (clique em um botão, por
+exemplo), traduzir e informar os eventos para a aplicação proprietária da janela.
+
+Além disso, toolkits multiplataforma são utilizados para escrever interfaces
+gráficas portáveis, permitindo com que o mesmo código seja recompilado para um
+sistema operacional diferente do em que foi escrito e funcione da mesma forma.
+
+\section{A plataforma GNOME e o toolkit GTK}
+
+Existem diversas opções de gerenciadores de janela de código aberto, comumente
+incluídos em várias distribuições de Linux. O GNOME, um ambiente gráfico
+bastante difundido pelos usuários de Linux, foi fundado e está em constante
+desenvolvimento por uma comunidade de engenheiros de software ao redor do mundo.
+
+Muito além de um mero gerenciador de janelas, a plataforma GNOME se desenvolveu
+a ponto de ser constituída por uma série de aplicações base, incluindo um
+gerenciador de janelas, um lançador de aplicações e diversos aplicativos
+integrados, como calculadora, editor de texto, gerenciadores de arquivos, redes,
+contatos, etc.
+
+A plataforma GNOME e seus aplicativos integrados são altamente baseados no
+toolkit GTK. De acordo com o site oficial, o ”GTK +, ou GIMP Toolkit, é um
+conjunto de ferramentas multi-plataforma para criar interfaces gráficas de
+usuário. Oferecendo um conjunto completo de widgets, o GTK + é adequado para
+projetos desde pequenas ferramentas pontuais até suítes completas de
+aplicativos.”  [1].
+
+\section{O código aberto e desenvolvimento contínuo}
+
+Uma das característica das plataformas de código aberto é a distribuição de
+esforços em prol do constante desenvolvimento e melhoria. A pluralidade de
+opiniões e idéias eleva o patamar das discussões e permite com que vários
+pontos de vista sejam levados em consideração na evolução da plataforma.
+
+Apesar dos prós existentes na distribuição de esforços também existem os contras
+— Projetos que são desenvolvidos paralelamente nem sempre avançam na mesma
+velocidade. E o contra fica mais sério quando um projeto depende do outro, como
+é o caso de toolkits e programas que os utilizam.
+
+Além dos aplicativos integrados, geralmente garantidos de acompanhar a evolução
+da plataforma, sua ergonomia e visual, existe uma vasta gama de aplicações tanto
+de código aberto quanto proprietárias disponíveis para atender as mais variadas
+necessidades. Em sua grande maioria os aplicativos também são mantidos pela
+comunidade, e se não atualizados podem ficar defasados em usabilidade, ergonomia
+e consistência com a plataforma.
+
+\section{Impactos na consistência e usabilidade}
+
+Shneiderman, 1992 descreve a usabilidade como uma combinação das seguintes
+características:
+
+\begin{itemize}
+  \item Facilidade de aprendizado
+  \item Alta velocidade de operação
+  \item Baixa taxa de erros
+  \item Satisfação do usuário
+  \item Retenção de usuários pelo tempo
+\end{itemize}
+
+Em prol da usabilidade a maioria dos toolkits aplica um modelo próprio de
+apresentação, organização, interação e estilização de widgets, que
+costumeiramente varia de acordo com o tipo de ambiente onde é executado
+(desktop, tablet e celular).
+
+O conjunto de padrões de design recomendado ao utilizar o GTK para garantir a
+máxima usabilidade da plataforma foi especificado oficialmente através de um
+documento lançado no ano de 2014, acompanhando a versão 3.14 do toolkit, sob o
+título de Human Interface Guidelines.
+
+O HIG, como também é chamado, é uma literatura ilustrada de diretrizes
+recomendadas no desenvolvimento de interfaces gráficas que utilizem o toolkit,
+com o intuito de reforçar a consistência visual e integração com diferentes
+gerenciadores de janela.
+
+\section{Estudo de caso: Transmission}
+
+Um aplicativo famoso disponível para a plataforma GNOME é o cliente de
+BitTorrent Transmission. Aclamado pela sua simplicidade, o aplicativo é
+utilizado para compartilhar arquivos através da internet.
+
+A interface gráfica do Transmission foi desenvolvida na era GNOME 2, e por mais
+que componentes básicos como botões e listas não tenham mudado agressivamente no
+GNOME 3, muitos padrões de design foram criados ou mudaram, trazendo mais
+conforto e consistência para os usuários e desenvolvedores do toolkit.
+
+O objetivo principal desta pesquisa é explorar o HIG do GTK 3.14, além de
+avançar o desenvolvimento de um software livre mantido pela comunidade de
+código aberto, propondo e contribuindo melhorias visuais e de código-fonte
+na interface gráfica do Transmission.
+
+Esta pesquisa foi baseada na análise de diversos casos de uso de softwares
+contidos na plataforma GNOME Desktop, versão 3.14, e tem a pretensão de
+descrever o processo de pensamento e a motivação por trás das adaptações de
+interface gráficas propostas.
 
 \section{JUSTIFICATIVA}
 
-De-se justificar a escolha do tema, a finalidade, relevância e foco do assunto.
+A interface do Transmission foi desenvolvida na era GTK 2, onde os requisitos,
+recursos e a visão da plataforma GNOME eram diferentes da atual. 
+
+Com os avanços recentes da pataforma GNOME muitos aplicativos sofrem de
+depreciação de design. O Transmission é um deste aplicativos.
 
 \section{OBJETIVOS}
 
-Nesta seção são apresentados os objetivos do presente trabalho.
-
 \subsection{Objetivo geral}
 
-Estudar o funcionamento da ferramenta \LaTeX.
+Propor adaptações na interface gráfica GTK do cliente de torrent Transmission de
+acordo com as recomendações do HIG versão 3.14, trazendo mais harmonia para seus
+utilizadores na plataforma GNOME.
 
 \subsection{Objetivos específicos}
 
-Aqui são definidos os objetivos específicos do trabalho.
+\begin{enumerate}
+  \item Identificar diferenças entre os padrões de design da versão 2.82 do
+  Transmission e padrões propostos pelo HIG 3.14
+  \item Propor adaptações na interface do Transmission beaseadas no HIG 3.14
+  \item Enviar as adaptações propostas para o projeto de código aberto. 
+\end{enumerate}
 
 \section{METODOLOGIA}
 
-Dizer qual metodologia de trabalho será usada.
+Esta pesquisa possui duas frentes de trabalho:
+
+Atraves de pesquisa exploratória bibliográfica serão levantados conhecimentos
+sobre os principais componentes de interface do HIG 3.14 e sua utilização na
+plataforma GNOME. Esta frente de trabalho deve compilar um conjunto de 
+conhecimentos importantes para conhecer a abrangêcia do HIG e sua utilização. 
+
+Um estudo de caso focado nos aplicativos padrão da plataforma GNOME formará uma
+pequisa experimental, produzindo documentação visual sobre melhorias possíveis
+na interface do Transmission.
 
 \section{ESTRUTURA DO TRABALHO}
 
@@ -251,7 +433,9 @@ Explicar como o trabalho está estruturado.
 % ---
 \chapter{REVISÃO DA LITERATURA}\label{cap-revisao}
 
-Neste capítulo são apresentados trabalhos relacionados que sejam relevantes para a pesquisa. Isso é um exemplo de citação \cite[p. 10]{van86}. Os dados de cada citação devem ser inseridos no arquivo \textit{content/referencias.bib}.
+Neste capítulo são apresentados trabalhos relacionados que sejam relevantes
+para a pesquisa. Isso é um exemplo de citação \cite[p. 10]{van86}. Os dados de
+cada citação devem ser inseridos no arquivo \textit{content/referencias.bib}.
 
 A seguir é apresentado uma citação direta com mais de três linhas:
 
