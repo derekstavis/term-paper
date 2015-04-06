@@ -53,7 +53,7 @@ saída (geralmente monitores) em múltiplas regiões de desenho, comumente chama
 de janelas  \cite[p. 5]{myers1996uimss}.
 
 Um gerenciador de janelas moderno também tem por finalidade coordenar a exibição
-deste conjunto de janelas em um conjunto de monitores, escutar por eventos de
+de um conjunto de janelas em um conjunto de monitores, escutar por eventos de
 entrada (mouse, teclado) e informar os responsáveis pelas janelas sobre
 alterações no layout de tela (dimensões da tela, dimensões da janela, espaço de
 cor).
@@ -61,7 +61,7 @@ cor).
 Gerenciadores de janelas, porém, não tem por responsabilidade preencher as áreas
 de desenho com gráficos, e como suas APIs operam geralmente a nível de pixel, a
 tarefa de escrever um programa gráfico acaba sendo demorada e entediante.
-\apudonline{rosenthal1988simple}{myers2000past} Além disso, se cada
+\apudonline{rosenthal1988simple}{myers2000past}. Além disso, se cada
 desenvolvedor criasse seus próprios componentes, seria praticamente impossível
 disponibilizar uma experiência consistente ao usuário.
 
@@ -69,9 +69,9 @@ Para solucionar este problema ferramentas conhecidas como toolkits foram criadas
 sobre as abstrações disponibilizadas pelos WMs. Sua finalidade é esconder
 características de baixo nível, disponibilizando uma fachada homogênea e
 portável para o desenvolvedor de software, além de comportamento e experiência
-visual consistente para o usuário final.
+visual consistente para o usuário final \cite{myers2000past}.
 
-As responsabilidades de um toolkit inclui desenhar elementos de interface
+As responsabilidades de um toolkit incluem desenhar elementos de interface
 gráfica como texto, botões, imagens, barras de progresso, etc, de acordo com um
 ou mais estilos visuais. Também é sua responsabilidade processar eventos de um
 ou mais dispositivos de entrada (mouse, teclado, painel de toque) verificar a
