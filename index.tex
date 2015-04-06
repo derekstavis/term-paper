@@ -277,63 +277,6 @@ Explicar como o trabalho está estruturado.
 
 \include{content/revisao}
 
-
-Neste capítulo são apresentados trabalhos relacionados que sejam relevantes
-para a pesquisa. Isso é um exemplo de citação \cite[p. 10]{van86}. Os dados de
-cada citação devem ser inseridos no arquivo \textit{content/referencias.bib}.
-
-A seguir é apresentado uma citação direta com mais de três linhas:
-
-\begin{citacao}
-As citações diretas, no texto, com mais de três linhas, devem ser destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto utilizado e sem as aspas. No caso de documentos datilografados, deve-se observar apenas o recuo \cite[p. 10]{NBR10520:2002}.
-\end{citacao}
-
-Na sequência é apresentado um exemplo simples de como escrever o TCC no \LaTeX. Primeiramente os campos no início desse arquivo devem ser preenchidos (título do trabalho, nome do autor, etc). Na sequência, o texto dos capítulos deve ser inserido, conforme esse exemplo. O arquivo de referências bibliográficas também deve ser gerado, conforme exemplo citado acima. Para ``compilar'' esse modelo e gerar o arquivo no formato ``.pdf'', no GNU/Linux, os seguintes comandos devem ser executados: \textbf{pdflatex modelo-tcc-senai.tex}, \textbf{bibtex modelo-tcc-senai} e mais duas vezes \textbf{pdflatex modelo-tcc-senai.tex}. 
-
-Veja um exemplo de nota de rodapé\footnote{Isso é uma nota de rodapé.}.
-
-Podemos também inserir tabelas da seguinte forma. A Tabela \ref{tab-exemplo} mostra um exemplo de tabela.
-
-\begin{table}[h!]
-\center\scriptsize
-\caption{\textbf{Tabela exemplo}}
-\begin{tabular}{|l|c|c|} \hline \label{tab-exemplo}
-\textbf{ Característica}	& \textbf{Valor} 	& \textbf{ Comportamento} \\ \hline
-Característica A 		& 8			& Bom \\ \hline
-Característica B		& 10			&Ótimo \\ \hline
-\textbf{Situação}		& \multicolumn{2}{c|}{\textit{Aprovado!}} \\ \hline
-\end{tabular}
-\fonte{do autor}
-\end{table}
-
-Na sequência inserimos uma figura para exemplo. A Figura \ref{fig-exemplo} é um exemplo de como devem ser inseridas as figuras no documento.
-
-\begin{figure}[htb]
-  \begin{center}
-    \caption{\textbf{Figura de exemplo}}\label{fig-exemplo}
-    \includegraphics [scale=0.6]{logo-senai.jpg}
-    \fonte{SENAI}\label{fig-exemplo}
-  \end{center}
-\end{figure}
-
-\section{NOVA SEÇÃO}
-
-Exemplo de uma nova seção.
-
-\subsection{Nova Subseção}
-
-Exemplo de uma subseção.
-
-\subsubsection{Nova Subsubseção}
-
-Exemplo de uma nova subsubseção.
-
-
-
-\paragraph{Nova Subsubsubseção}
-
-Exemplo de uma nova subsubsubseção.
-
 % ---
 % Procedimentos metodológicos
 % ---
