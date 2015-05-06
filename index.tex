@@ -1,40 +1,29 @@
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão em verso e anverso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	brazil				% o último idioma é o principal do documento
-	]{abntex2}
+    % -- opções da classe memoir --
+    12pt,               % tamanho da fonte
+    openright,          % capítulos começam em pág ímpar (insere página vazia caso preciso)
+    oneside,            % para impressão em verso e anverso. Oposto a oneside
+    a4paper,            % tamanho do papel. 
+    % -- opções da classe abntex2 --
+    chapter=TITLE,      % títulos de capítulos convertidos em letras maiúsculas
+    section=TITLE,      % títulos de seções convertidos em letras maiúsculas
+    % -- opções do pacote babel --
+    brazil              % o último idioma é o principal do documento
+]{abntex2}
 
-% ---
-% PACOTES
-% ---
+\usepackage{times}          % Usa a fonte Times
+\usepackage[T1]{fontenc}    % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc} % Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}       % Usado pela Ficha catalográfica
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}          % Controle das cores
+\usepackage{microtype}      % para melhorias de justificação
+\usepackage{listings}       % para inserir código fonte
+\usepackage{graphicx}       % para inserir imagens
 
-% ---
-% Pacotes fundamentais 
-% ---
-\usepackage{times}			% Usa a fonte Times
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}			% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
-\usepackage{listings}			% para inserir código fonte
-
-% ---
 % Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}     % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 \usepackage{titlesec}
 
 % --- 
@@ -59,32 +48,33 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
+    \ifcase #1 %
+        Nenhuma citação no texto.%
+    \or
+        Citado na página #2.%
+    \else
+        Citado #1 vezes nas páginas #2.%
+    \fi}%
 % ---
 
 % ---
-% **************************************************
-% Informações que devem ser alteradas
-% **************************************************
-\titulo{\uppercase{Uma proposta de interface do cliente de torrent Transmission baseado no GTK HIG 3.14}}
+\titulo{\uppercase{Uma proposta de interface do cliente de torrent Transmission
+                   baseado no GTK HIG 3.14}}
 \autor{\uppercase{Derek Willian Stavis}}
 \orientador{Aline Cristina Antoneli de Oliveira}
 \orientadortcc{Prof. \imprimirorientador, Dr. (SENAI/SC)}
 \coordenador{Prof. Luciana Schmitz, Esp. (SENAI/SC)}
 \coordenadortcc{Profa. Jaqueline Voltolini de Almeida, Me. (SENAI/SC)}
 \examinador{Prof. Fulado de tal, Me. (SENAI/SC)}
-\preambulo{Trabalho de Conclusão de Curso apresentado à Banca Examinadora do Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia do SENAI Florianópolis como requisito parcial para obtenção do Grau de Tecnólogo em Análise e Desenvolvimento de Sistemas.}
+\preambulo{Trabalho de Conclusão de Curso apresentado à Banca Examinadora do
+           Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas
+           da Faculdade de Tecnologia do SENAI Florianópolis como requisito 
+           parcial para obtenção do Grau de Tecnólogo em Análise e 
+           Desenvolvimento de Sistemas.}
 \proforientador{Professor Orientador: \imprimirorientador.}
 \datadefesa{\uppercase{28 de Novembro de 2014}}
 \local{Florianópolis/SC}
 \data{2014}
-% **************************************************
 
 \instituicao{%
   SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL 
@@ -100,18 +90,18 @@
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
-		colorlinks=true,      	% false: boxed links; true: colored links
-		linkcolor=black,	% color of internal links
-		citecolor=black,        % color of links to bibliography
-		filecolor=magenta,      % color of file links
-		urlcolor=black,
-		bookmarksdepth=4
+        %pagebackref=true,
+        pdftitle={\@title}, 
+        pdfauthor={\@author},
+        pdfsubject={\imprimirpreambulo},
+        pdfcreator={LaTeX with abnTeX2},
+        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+        colorlinks=true,    % false: boxed links; true: colored links
+        linkcolor=black,    % color of internal links
+        citecolor=black,    % color of links to bibliography
+        filecolor=magenta,  % color of file links
+        urlcolor=black,
+        bookmarksdepth=4
 }
 \makeatother
 % --- 
@@ -223,18 +213,31 @@ O lançamento de um guia de padrões para o desenvolvimento de interfaces gráfi
 orientadas ao ambiente gráfico GNOME foi de suma importância para alinhar
 desenvolvedores ao intuito deste ambiente gráfico de código aberto.
 
-Com esta adição, a plataforma GNOME passa a ter mais harmonia, e os aplicativos
-padrão são os primeiros a ganharem este tratamento. Entretanto, aplicativos de
-terceiros que já funcionavam na plataforma passam a apresentar-se defasados,
-perdendo em usabilidade e em beleza.
+O guia contribui para que o GNOME passe a ter mais harmonia visual, seja através
+dos aplicativos centrais, -- os primeiros a receber tratamento estético -- ou
+por aplicativos de terceiros, que devem se adaptar utilizando o guia como
+referência.
 
-Um aplicativo que sofre deste efeito é o Transmission, um cliente de torrent
-muito popular, que foi desenvolvido na era GTK 2, onde os requisitos, recursos e
-a visão da plataforma GNOME eram diferentes.
+Aplicativos que não se adequam ao guia passam a apresentar-se defasados,
+perdendo pontos em usabilidade e em beleza, e aumentando a taxa de rejeição.
+Mantenedores de aplicativos baseados no toolkit GTK devem, portanto, dedicar
+atenção para o fator de usabilidade e o progresso da plataforma quais foram
+desenhados para.
 
-Esta pesquisa detalha o processo de pensamento por trás da adaptação deste
-cliente de torrent, embasando as mudanças no guia de padrões e em aplicativos
-já existentes na plataforma GNOME.
+Um aplicativo que sofre deste efeito e necessita dedicação é o Transmission, um
+cliente de torrent popular, que foi desenvolvido na era GTK 2, onde os
+requisitos, recursos e a visão da plataforma GNOME eram diferentes
+\cite{gnome221hig}.
+
+O objetivo principal desta pesquisa é explorar o HIG do GTK 3.14, além de
+avançar o desenvolvimento de um software livre mantido pela comunidade de código
+aberto, propondo e contribuindo melhorias visuais e de código-fonte na interface
+gráfica do Transmission.
+
+Esta pesquisa foi baseada na análise de diversos casos de uso de softwares
+contidos na plataforma GNOME Desktop, versão 3.14, e tem a pretensão de
+descrever o processo de pensamento e a motivação por trás das adaptações de
+interface gráficas propostas.
 
 \section{OBJETIVOS}
 
@@ -247,74 +250,23 @@ utilizadores na plataforma GNOME.
 \subsection{Objetivos específicos}
 
 \begin{enumerate}
-  \item Identificar diferenças entre os padrões de design da versão 2.82 do
-  Transmission e padrões propostos pelo HIG 3.14
-  \item Propor adaptações na interface do Transmission beaseadas no HIG 3.14
-  \item Enviar as adaptações propostas para o projeto de código aberto. 
+  \item Comparar dados evolutivos da interface de aplicações centrais do GNOME.
+  \item Identificar pontos de redesign na janela principal do Transmission.
+  \item Propor adaptações na interface do Transmission, embasadas no HIG 3.14.
 \end{enumerate}
-
-\section{METODOLOGIA}
-
-Esta pesquisa possui duas frentes de trabalho:
-
-Atraves de pesquisa exploratória bibliográfica serão levantados conhecimentos
-sobre os principais componentes de interface do HIG 3.14 e sua utilização na
-plataforma GNOME. Esta frente de trabalho deve compilar um conjunto de 
-conhecimentos importantes para conhecer a abrangêcia do HIG e sua utilização. 
-
-Um estudo de caso focado nos aplicativos padrão da plataforma GNOME formará uma
-pequisa experimental, produzindo documentação visual sobre melhorias possíveis
-na interface do Transmission.
-
-\section{ESTRUTURA DO TRABALHO}
-
-Explicar como o trabalho está estruturado.
-
-% ---
-% Capitulo de revisão de literatura
-% ---
-\chapter{REVISÃO DA LITERATURA}\label{cap-revisao}
 
 \include{content/revisao}
 
-% ---
-% Procedimentos metodológicos
-% ---
-\chapter{PROCEDIMENTOS METODOLÓGICOS}
+\include{content/procedimentos-metodologicos}
 
-Descrevem-se, neste capítulo, os procedimentos metodológicos que nortearam a pesquisa.
+\include{content/resultados-e-discussoes}
 
-% ---
-% Resultados
-% ---
-\chapter{RESULTADOS E DISCUSSÕES}
-
-Neste capítulo são apresentados os resultados da pesquisa descrita no capítulo \ref{cap-revisao}.
-
-\begin{figure}[htb]
-  \begin{center}
-    \caption{\textbf{Figura de exemplo 2}}\label{fig-exemplo1}
-    \includegraphics [scale=0.6]{logo-senai.jpg}
-    \fonte{SENAI}\label{fig-exemplo1}
-  \end{center}
-\end{figure}
-% ---
-% Conclusão
-% ---
 \chapter{CONCLUSÃO}
 
-% ----------------------------------------------------------
-% Referências bibliográficas
 \bibliography{content/referencias}
 
-% Etiqueta para auxiliar contagem do numero de paginas do texto e dos elementos pos-textuais
 \label{nropaginas}
 
-% **************************************************
-
-%---------------------------------------------------------------------
-% INDICE REMISSIVO
-%---------------------------------------------------------------------
 \printindex
 
 \end{document}

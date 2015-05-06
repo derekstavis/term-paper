@@ -1,3 +1,5 @@
+\chapter{REVISÃO DA LITERATURA}
+
 O desenvolvimento de mecanismos que automatizam tarefas existe desde a idade das
 pedras, onde hominídeos produziam ferramentas para auxílio próprio. A
 transversalidade do conhecimento e da experimentação nos levou a descoberta de
@@ -10,7 +12,7 @@ a forma com que o ser humano interage com o mundo \cite[p.
 O conceito de interface é extremamente amplo, e foi largamente difundido com o
 início dos estudos de interação humano-máquina. O avanço da industrialização
 permitiu com que máquinas extremamente complexas substituíssem seres humanos nas
-tarefas mais difíceis,  deixando estes, seus operadores, apenas com a
+tarefas mais difíceis, deixando estes, seus operadores, apenas com a
 responsabilidade de pilotá-las de forma simples e segura.
 
 O advento de tecnologias multimídias interativas como computadores, celulares e
@@ -24,17 +26,9 @@ empíricos ou protótipos, e ainda há muito pouca compreensão teórica ou de
 engenharia de como conduzir o processo de design e produzir bons designs pela
 primeira vez”.
 
-O primeiro conceito científico de gerenciamento de tarefas através da
-sobreposição de janelas data de 1969, na tese de Ph.D. de Alan Kay. A
-implementação de seu conceito, vista pela primeira vez em funcionamento no
-sistema do Xerox PARC, é largamente utilizada até hoje por grandes sistemas
-tanto comerciais quanto de código aberto, como Windows, OS X, GNOME, KDE
-\cite[p. 7]{myers2000past}.
-
 Interfaces gráficas modernas foram alcançadas através da associação entre
-hardware e software, utilizando de diversos dispositivos de entrada e saída,
-além de  inúmeras camadas de software, com o intuito de promover usabilidade e
-fácil adaptação.
+hardware e software, podendo utilizar de um ou mais dispositivos de entrada e
+saída, com o intuito de promover usabilidade e fácil adaptação.
 
 Dispositivos de entrada transformam coordenadas do mundo real para o mundo
 virtual, registrando condições externas que podem ser modificadas através da
@@ -46,11 +40,18 @@ e seu caráter é geralmente baseado nos sentidos: Visão, audição, tato. O
 dispositivo de saída mais comum é o monitor, que tem por finalidade projetar
 imagens compatíveis com a capacidade humana de visão.
 
-\section{Gerenciadores de Janelas e Toolkits}
+\section{Gerenciadores de Janelas}
 
-Gerenciadores de janelas suportam a separação da imagem de um dispositivo de
-saída (geralmente monitores) em múltiplas regiões de desenho, comumente chamadas
-de janelas  \cite[p. 5]{myers1996uimss}.
+Gerenciadores de janelas tem como principal função dividir a imagem de um
+dispositivo de saída (geralmente monitores) em múltiplas regiões de desenho,
+popularmente denominadas janelas \cite[p. 5]{myers1996uimss}.
+
+O primeiro conceito científico de gerenciamento de tarefas através da
+sobreposição de janelas data de 1969, na tese de Ph.D. de Alan Kay. A
+implementação de seu conceito, vista pela primeira vez em funcionamento no
+sistema do Xerox PARC, é largamente utilizada até hoje por grandes sistemas
+tanto comerciais quanto de código aberto, como Windows, OS X, GNOME, KDE
+\cite[p. 7]{myers2000past}.
 
 Um gerenciador de janelas moderno também tem por finalidade coordenar a exibição
 de um conjunto de janelas em um conjunto de monitores, escutar por eventos de
@@ -60,24 +61,33 @@ cor).
 
 Gerenciadores de janelas, porém, não tem por responsabilidade preencher as áreas
 de desenho com gráficos, e como suas APIs operam geralmente a nível de pixel, a
-tarefa de escrever um programa gráfico acaba sendo demorada e entediante.
-\apudonline{rosenthal1988simple}{myers2000past}. Além disso, se cada
-desenvolvedor criasse seus próprios componentes, seria praticamente impossível
-disponibilizar uma experiência consistente ao usuário.
+tarefa de escrever um programa gráfico acaba sendo demorada e entediante. Além
+disso, se cada desenvolvedor criasse seus próprios componentes, seria
+praticamente impossível disponibilizar uma experiência consistente ao usuário
+\apudonline{rosenthal1988simple}{myers2000past}.
 
 Para solucionar este problema ferramentas conhecidas como toolkits foram criadas
-sobre as abstrações disponibilizadas pelos WMs. Sua finalidade é esconder
+sobre as abstrações disponibilizadas pelos WMs.
+
+\section{Toolkits Gráficos}
+
+Do ponto de vista do programador a finalidade de um toolkit é abstrair
 características de baixo nível, disponibilizando uma fachada homogênea e
-portável para o desenvolvedor de software, além de comportamento e experiência
-visual consistente para o usuário final \cite{myers2000past}.
+portável, além de comportamento e experiência visual consistente para o usuário
+final \cite{myers2000past}.
+
+Do ponto de vista financeiro o reuso de código-fonte é uma maneira de amortizar
+o custo de desenvolvimento, reduzindo o tempo de desenvolvimento de novos
+projetos \citeonline{haefliger2008code}.
 
 As responsabilidades de um toolkit incluem desenhar elementos de interface
 gráfica como texto, botões, imagens, barras de progresso, etc, de acordo com um
-ou mais estilos visuais. Também é sua responsabilidade processar eventos de um
-ou mais dispositivos de entrada (mouse, teclado, painel de toque) verificar a
-colisão de um evento com elementos de interface gráfica (clique em um botão, por
-exemplo), traduzir e informar os eventos para a aplicação proprietária da
-janela.
+ou mais estilos visuais estes elementos de interface são chamados de widgets.
+
+Também é sua responsabilidade processar eventos de um ou mais dispositivos de
+entrada (mouse, teclado, painel de toque) verificar a colisão de um evento com
+um widget (clique em um botão, por exemplo) e por fim traduzir e informar os
+eventos para a aplicação proprietária da janela.
 
 Toolkits multiplataforma podem ser utilizados para escrever interfaces gráficas
 portáveis, permitindo com que o mesmo código seja recompilado para um sistema
@@ -87,23 +97,38 @@ operacional diferente do em que foi escrito e funcione da mesma forma.
 
 Existem diversas opções de gerenciadores de janela de código aberto, comumente
 incluídos em várias distribuições de Linux. O GNOME, um ambiente gráfico
-bastante difundido pelos usuários de Linux, foi fundado e está em constante
+bastante difundido pelos usuários de Linux, foi fundado e está em ativo
 desenvolvimento por uma comunidade de engenheiros de software ao redor do mundo.
 
-Muito além de um mero gerenciador de janelas, a plataforma GNOME se desenvolveu
-a ponto de ser constituída por uma série de aplicações base, incluindo um
-gerenciador de janelas, um lançador de aplicações e diversos aplicativos
-integrados, como calculadora, editor de texto, gerenciadores de arquivos, redes,
-contatos, etc.
+\begin{citacao}
+    O GNOME 3 é uma maneira fácil e elegante de usar seu computador.
+    Ele foi desenhado para lhe colocar no controle e trazer liberdade para 
+    todos. O GNOME 3 é desenvolvido pela comunidade GNOME, um grupo
+    internacional e diverso de contribuidores que são suportados por uma
+    fundação independente, e sem fins lucrativos \cite{gnome-org}.
+\end{citacao}
 
-A plataforma GNOME e seus aplicativos integrados são altamente baseados no
-toolkit GTK. De acordo com o site oficial, o ”GTK +, ou GIMP Toolkit, é um
-conjunto de ferramentas multi-plataforma para criar interfaces gráficas de
-usuário. Oferecendo um conjunto completo de widgets, o GTK + é adequado para
-projetos desde pequenas ferramentas pontuais até suítes completas de
-aplicativos.”  [1].
+Muito mais que um gerenciador de janelas, a experiência GNOME é construída por
+um conjunto de aplicações centrais, que incluem um gerenciador de janelas, um
+lançador de aplicações e diversos aplicativos centrais, como calculadora,
+editor de texto, gerenciadores de arquivos, redes, contatos, etc.
 
-\section{O código aberto e desenvolvimento contínuo}
+\begin{figure}[htb]
+  \begin{center}
+    \label{mclasen-new-apps}
+    \caption{\textbf{Uma captura de tela do GNOME 3.16}}
+    \includegraphics [width=\textwidth]{image/mclasen-new-apps.png}
+    \fonte{Matias Clasen}
+  \end{center}
+\end{figure}
+
+A plataforma GNOME e seus aplicativos centrais são baseados no toolkit GTK. O
+GTK + é formado por um conjunto de ferramentas multi-plataforma para criar
+interfaces gráficas de usuário. Por oferecer um conjunto completo de widgets é
+adequado para projetos desde pequenas ferramentas pontuais até suítes completas
+de aplicativos \cite{gtk-org}.
+
+\section{Software livre e o desenvolvimento contínuo}
 
 Uma das característica das plataformas de código aberto é a distribuição de
 esforços em prol do constante desenvolvimento e melhoria. A pluralidade de
@@ -111,19 +136,25 @@ opiniões e idéias eleva o patamar das discussões e permite com que vários po
 de vista sejam levados em consideração na evolução da plataforma.
 
 Apesar dos prós existentes na distribuição de esforços também existem os contras
-— Projetos que são desenvolvidos paralelamente nem sempre avançam na mesma
-velocidade. E o contra fica mais sério quando um projeto depende do outro, como
-é o caso de toolkits e programas que consomem suas APIs (Application Programming
-Interfaces - Interfaces Programador-Programa).
+-- Projetos que são desenvolvidos paralelamente nem sempre avançam na mesma
+velocidade. O contra fica mais sério quando um projeto depende do outro, como é
+o caso de toolkits e programas que consomem suas APIs.
 
-Além dos aplicativos integrados, geralmente garantidos de acompanhar a evolução
-da plataforma, sua ergonomia e visual, existe uma vasta gama de aplicações tanto
-de código aberto quanto proprietárias disponíveis para atender as mais variadas
-necessidades. Em sua grande maioria os aplicativos também são mantidos pela
-comunidade, e se não atualizados podem ficar defasados em usabilidade, ergonomia
-e consistência com a plataforma.
+Quando ocorrem mudanças na interface de programação de uma framework ou
+biblioteca, softwares dependentes tem de se adaptar as mudanças. O efeito
+cascata provocado pela propagação de alterações na malha de softwares
+dependentes não é incomum, e já foi objeto de estudo \cite{yau1978ripple}.
 
 \section{Impactos na consistência e usabilidade}
+
+Além dos aplicativos centrais, geralmente garantidos de acompanhar a evolução
+da plataforma -- sua ergonomia e visual -- existe uma vasta gama de aplicações
+tanto de código aberto quanto proprietárias disponíveis para atender as mais
+variadas necessidades.
+
+A grande maioria das aplicações GTK+ são mantidas pela comunidade de software
+livre, e se não atualizadas podem ficar defasados em usabilidade, ergonomia e
+consistência com a plataforma.
 
 \citeonline{shneiderman1992designing} descreve a usabilidade como uma combinação
 das seguintes características:
@@ -141,33 +172,50 @@ apresentação, organização, interação e estilização de widgets, que
 costumeiramente varia de acordo com o tipo de ambiente onde é executado
 (desktop, tablet e celular).
 
-O conjunto de padrões de design recomendado ao utilizar o GTK para garantir a
-máxima usabilidade da plataforma foi especificado oficialmente através de um
-documento lançado no ano de 2014, acompanhando a versão 3.14 do toolkit, sob o
-título de Human Interface Guidelines.
+\section{HIG ou Human Interface Guidelines}
+
+Divulgado no ano de 2014, acompanhando a versão 3.14 da plataforma GNOME, sob o
+título de Human Interface Guidelines, o conjunto de padrões de design
+oficialmente promovido pela GNOME Foundation busca promover a máxima integração
+de interfaces gráficas GTK+ na plataforma GNOME.
+
+\begin{citacao}
+    Se você é um desenvolvedor com experiência limitada de design o HIG foi
+    planejado para auxiliar você a criar facilmente uma interface de usuário
+    efetiva. Para designers, o HIG provê uma introdução as possibilidades ao 
+    usar o GTK+, assim como padrões de design que são usados nos aplicativos
+    GNOME \cite{gnome314hig}.
+\end{citacao}
 
 O HIG, como também é chamado, é uma literatura ilustrada de diretrizes
 recomendadas no desenvolvimento de interfaces gráficas que utilizem o toolkit,
 com o intuito de reforçar a consistência visual e integração com diferentes
-gerenciadores de janela.
+gerenciadores de janela. 
+
+Dentre os objetivos do HIG estão a transmissão das metas de design de alto nível
+e estratégicas da experiência GNOME e a comunicação das diretrizes de design
+essenciais, de uma forma clara, e viva, acompanhando a evolução da plataforma
+\citeonline{day2015wiki}.
 
 \section{Estudo de caso: Transmission}
 
 Um aplicativo famoso disponível para a plataforma GNOME é o cliente de
-BitTorrent Transmission. Aclamado pela sua simplicidade, o aplicativo é
-utilizado para compartilhar arquivos através da internet.
+BitTorrent Transmission \cite{transmission282}. Aclamado pela sua simplicidade,
+o aplicativo é utilizado para compartilhar arquivos através da internet.
 
-A interface gráfica do Transmission foi desenvolvida na era GNOME 2, e por mais
-que componentes básicos como botões e listas não tenham mudado agressivamente no
-GNOME 3, muitos padrões de design foram criados ou mudaram, trazendo mais
-conforto e consistência para os usuários e desenvolvedores do toolkit.
+Através de uma configuração padrão funcional e apenas alguns cliques para
+configurar funcionalidades avançadas a utilização do cliente de torrent
+Transmission foi projetada para ser fácil e poderosa \cite{transmission-about}.
 
-O objetivo principal desta pesquisa é explorar o HIG do GTK 3.14, além de
-avançar o desenvolvimento de um software livre mantido pela comunidade de código
-aberto, propondo e contribuindo melhorias visuais e de código-fonte na interface
-gráfica do Transmission.
+A primeira versão do Transmission foi lançada em Setembro de 2005, já com uma
+interface gráfica baseada em GTK+, projetada sob as recomendação do HIG
+da época, publicada digitalmente em formato de livro \cite{gnome221hig}.
 
-Esta pesquisa foi baseada na análise de diversos casos de uso de softwares
-contidos na plataforma GNOME Desktop, versão 3.14, e tem a pretensão de
-descrever o processo de pensamento e a motivação por trás das adaptações de
-interface gráficas propostas.
+\begin{figure}[htb]
+  \begin{center}
+    \caption{\textbf{Transmission 2.28 no GNOME 3.16}}
+    \includegraphics [width=\textwidth]{image/transmission/282-master/main-window.png}
+    \label{transmission-master}
+    \fonte{Transmission versão 2.28}
+  \end{center}
+\end{figure}
