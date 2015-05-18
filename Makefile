@@ -1,7 +1,7 @@
 TEXMAIN=index
 PAPER="a-new-gtk+3-experience-for-transmission-torrent-client"
 BIBTEX=bibtex
-PDFLATEX=texliveonfly
+PDFLATEX=pdflatex
 
 test:
 	@[[ `which $(PDFLATEX)` ]] || echo $(PDFLATEX) not found
@@ -9,6 +9,9 @@ test:
 
 clean:
 	rm -f ${TEXMAIN}.{ps,pdf,log,aux,out,dvi,bbl,blg}
+
+bib:
+	$(BIBTEX) $(TEXMAIN)
 
 pdf:
 	$(PDFLATEX) $(TEXMAIN)
