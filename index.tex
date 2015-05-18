@@ -3,7 +3,7 @@
     12pt,               % tamanho da fonte
     openright,          % capítulos começam em pág ímpar (insere página vazia caso preciso)
     oneside,            % para impressão em verso e anverso. Oposto a oneside
-    a4paper,            % tamanho do papel. 
+    a4paper,            % tamanho do papel.
     % -- opções da classe abntex2 --
     chapter=TITLE,      % títulos de capítulos convertidos em letras maiúsculas
     section=TITLE,      % títulos de seções convertidos em letras maiúsculas
@@ -26,9 +26,9 @@
 \usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 \usepackage{titlesec}
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % altera o espacamento depois do número de cada secao, subsecao, etc
 \titleformat{\section}
@@ -61,15 +61,15 @@
 \titulo{\uppercase{Uma proposta de interface do cliente de torrent Transmission
                    baseado no GTK HIG 3.14}}
 \autor{\uppercase{Derek Willian Stavis}}
-\orientador{Aline Cristina Antoneli de Oliveira}
+\orientador{Luciana Schmitz}
 \orientadortcc{Prof. \imprimirorientador, Dr. (SENAI/SC)}
 \coordenador{Prof. Luciana Schmitz, Esp. (SENAI/SC)}
-\coordenadortcc{Profa. Jaqueline Voltolini de Almeida, Me. (SENAI/SC)}
+\coordenadortcc{Profa. Aline Cristina Antonelli de Oliveira, Esp. (SENAI/SC)}
 \examinador{Prof. Fulado de tal, Me. (SENAI/SC)}
 \preambulo{Trabalho de Conclusão de Curso apresentado à Banca Examinadora do
            Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas
-           da Faculdade de Tecnologia do SENAI Florianópolis como requisito 
-           parcial para obtenção do Grau de Tecnólogo em Análise e 
+           da Faculdade de Tecnologia do SENAI Florianópolis como requisito
+           parcial para obtenção do Grau de Tecnólogo em Análise e
            Desenvolvimento de Sistemas.}
 \proforientador{Professor Orientador: \imprimirorientador.}
 \datadefesa{\uppercase{28 de Novembro de 2014}}
@@ -77,7 +77,7 @@
 \data{2014}
 
 \instituicao{%
-  SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL 
+  SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL
   \par
   FACULDADE DE TECNOLOGIA SENAI/SC FLORIANÓPOLIS
   \par
@@ -91,11 +91,11 @@
 \makeatletter
 \hypersetup{
         %pagebackref=true,
-        pdftitle={\@title}, 
+        pdftitle={\@title},
         pdfauthor={\@author},
         pdfsubject={\imprimirpreambulo},
         pdfcreator={LaTeX with abnTeX2},
-        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
         colorlinks=true,    % false: boxed links; true: colored links
         linkcolor=black,    % color of internal links
         citecolor=black,    % color of links to bibliography
@@ -104,11 +104,11 @@
         bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -130,7 +130,7 @@
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -157,9 +157,9 @@
    EM FLORIANÓPOLIS, \bfseries{\imprimirdatadefesa}
    \end{center}
 
-   \assinatura{\imprimircoordenador \\ Coordenador do Curso} 
-   \assinatura{\imprimircoordenadortcc \\ Coordenador de TCC} 
-   \assinatura{\imprimirorientadortcc \\ Orientador} 
+   \assinatura{\imprimircoordenador \\ Coordenador do Curso}
+   \assinatura{\imprimircoordenadortcc \\ Coordenador de TCC}
+   \assinatura{\imprimirorientadortcc \\ Orientador}
    \assinatura{\imprimirexaminador \\ Examinador}
    \begin{center}
     \vspace*{1cm}
@@ -219,10 +219,10 @@ por aplicativos de terceiros, que devem se adaptar utilizando o guia como
 referência.
 
 Aplicativos que não se adequam ao guia passam a apresentar-se defasados,
-perdendo pontos em usabilidade e em beleza, e aumentando a taxa de rejeição.
+perdendo pontos em usabilidade e em beleza, aumentando a taxa de rejeição.
 Mantenedores de aplicativos baseados no toolkit GTK devem, portanto, dedicar
-atenção para o fator de usabilidade e o progresso da plataforma quais foram
-desenhados para.
+atenção para o fator usabilidade, mantendo-se compatível com o progresso da
+plataforma GNOME.
 
 Um aplicativo que sofre deste efeito e necessita dedicação é o Transmission, um
 cliente de torrent popular, que foi desenvolvido na era GTK 2, onde os

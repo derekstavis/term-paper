@@ -1,20 +1,22 @@
 \chapter{PROCEDIMENTOS METODOLÓGICOS}
 
-Em um primeiro instante foram levantadas aplicações centrais do GNOME 3.16 de
-conhecimento popular e que já implementam os padrões de design definidos no HIG
-3.14. Pelo importante papel desempenhado na experiência GNOME, foram
-selecionadas três aplicações centrais:
+Em um primeiro instante, com o objetivo de avaliar o processo de evolução da
+plataforma GNOME e seu design, foram identificadas aplicações centrais do
+GNOME 3.16 que já implementam os padrões de design definidos no HIG. Pelo
+importante papel desempenhado na experiência GNOME, foram selecionadas três
+aplicações centrais:
 
 \begin{itemize}
-    \item Nautilus
-    \item Evince
-    \item Gedit
+    \item Nautilus -- Navegador de Arquivos
+    \item Evince -- Visualizador de Documentos Digitais
+    \item Gedit -- Editor de Arquivos de Txewhto
 \end{itemize}
 
 \section{Análise cronológica dos padrões de design}
 
-Dentre os padrões de design especificados pelo HIG \cite{hig314patterns} foram
-escolhidos os seguintes a serem observados:
+Com inuito de averiguar os padrões de design especificados pelo HIG
+\cite{hig314patterns} foram definidos alguns parâmetros a serem observados na
+evolução do design dos aplicativos analisados.
 
 \begin{enumerate}
   \item Menu da Aplicação
@@ -23,16 +25,6 @@ escolhidos os seguintes a serem observados:
   \item Comutador de Visão
   \item Busca
 \end{enumerate}
-
-\begin{figure}[htb]
-  \begin{center}
-    \caption{\textbf{Padrões e suas aplicações}}\label{gnome-hig-patterns}
-    \includegraphics[width=\textwidth]{image/hig/patterns.eps}
-    \label{gnome-hig-patterns}
-    \fonte{GNOME 3.16 HIG - Patterns}
-  \end{center}
-\end{figure}
-
 
 \section{Configuração do Ambiente de Testes}
 
@@ -48,12 +40,12 @@ Dentre as versões disponíveis foram selecionadas :
     \hline
     Versão do GNOME & Data de Modificação & Nome do arquivo & Soma de Verificação \\
     \hline
-    3.6.0 & 08/10/2012 & GNOME-3.6.0.iso       & MD5    753c99ce2342f658 
+    3.6.0 & 08/10/2012 & GNOME-3.6.0.iso       & MD5    753c99ce2342f658
                                                         65c1f74bc3722e44 \\
     \hline
-    3.16  & 25/03/2015 & gnome-3.16.x86-64.iso & SHA256 4a6185a0aca89f15 
-                                                        8f769d76d5a0086f 
-                                                        0f1e9d709a5d80cd 
+    3.16  & 25/03/2015 & gnome-3.16.x86-64.iso & SHA256 4a6185a0aca89f15
+                                                        8f769d76d5a0086f
+                                                        0f1e9d709a5d80cd
                                                         cf2b0d52d67ab2b2 \\
     \hline
     \end{tabularx}
