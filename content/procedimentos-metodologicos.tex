@@ -2,21 +2,24 @@
 
 Em um primeiro instante, com o objetivo de avaliar o processo de evolução da
 plataforma GNOME e seu design, foram identificadas aplicações centrais do
-GNOME 3.16 que já implementam os padrões de design definidos no HIG. Pelo
-importante papel desempenhado na experiência GNOME, foram selecionadas três
+GNOME 3.16 que já implementam os padrões de design definidos no HIG.
+
+Pelo importante papel desempenhado na experiência GNOME, foram selecionadas três
 aplicações centrais:
 
 \begin{itemize}
     \item Nautilus -- Navegador de Arquivos
     \item Evince -- Visualizador de Documentos Digitais
-    \item Gedit -- Editor de Arquivos de Txewhto
+    \item Gedit -- Editor de Arquivos de Texto
 \end{itemize}
 
-\section{Análise cronológica dos padrões de design}
+\section{Análise cronológica dos padrões de design nas aplicações}
+\label{sec:chronologic-analysis}
 
-Com inuito de averiguar os padrões de design especificados pelo HIG
-\cite{hig314patterns} foram definidos alguns parâmetros a serem observados na
-evolução do design dos aplicativos analisados.
+Uma análise cronológica foi elaborada através da comparação de duas versões
+distantes do GNOME e das aplicações centrais escolhidas. Os parâmetros de
+análise foram escolhidos dentro dos padrões de design especificados pelo HIG
+\cite{hig314patterns}:
 
 \begin{enumerate}
   \item Menu da Aplicação
@@ -26,14 +29,20 @@ evolução do design dos aplicativos analisados.
   \item Busca
 \end{enumerate}
 
-\section{Configuração do Ambiente de Testes}
+O processo de análise cronológica foi facilitado pela disponibilidade de imagens
+oficiais de um sistema operacional com todo software necessário para uma
+experiência GNOME básica.
 
-O projeto GNOME disponibiliza imagens oficiais de um sistema operacional Linux
-com todos os pacotes necessários para uma experiência GNOME pré instados e
-configurados. Sua utilização trouxe facilidade e consistência nos testes
-efetuados.
+Detalhadas na tabela \ref{gnome-versions} estão as informações das versões
+escolhidas, dentre as disponíveis para análise \cite {gnome2015promo-usb}.
 
-Dentre as versões disponíveis foram selecionadas :
+\citeonline{popper1959logic} afirma que no ramo da pesquisa experimental é de
+suma importância a reprodutibilidade de um experimento, argumentando inclusive
+que ocorrências não reproduzíveis não tem significância para a ciência.
+
+A soma de verificação de cada arquivo foi utilizada para checar a integridade do
+sistema operacional, e todas aplicações foram analisadas na versão oficial, sem
+alterações na configuração do sistema, troca de temas, fontes, etc.
 
 \begin{center}
     \begin{tabularx}{\textwidth}{ | l | l | l | X | }
@@ -51,10 +60,8 @@ Dentre as versões disponíveis foram selecionadas :
     \end{tabularx}
 \end{center}
 
-Todas aplicações foram analisadas na versão publicada, sem alterações na
-configuração do sistema, troca de temas, fontes, etc. O ambiente virtual foi
-provisionado utilizando o software Oracle VM VirtualBox 4.3.26 na seguinte
-configuração de máquina:
+A execução das imagens se deu em ambiente virtual, provisionado utilizando o
+software Oracle VM VirtualBox 4.3.26 com a seguinte configuração de máquina:
 
 \begin{center}
     \begin{tabular}{ | l | l | }
@@ -78,3 +85,55 @@ configuração de máquina:
     \end{tabular}
 \end{center}
 
+O registro gráfico das aplicações analisadas se deu através de captura de telas,
+quais podem ser encontradas na íntegra no apêndice \ref{app:chrono-screenshots}.
+
+% TODO: Falar mais sobre a metodologia de análise das aplicações centrais.
+% Foram:
+% - Comparadas as capturas de tela
+% - Relacionados componentes gráficos equivalentes aos escolhidos
+% - Analise de uso de espaço
+
+Pelas diferenças existentes na análise de caráter cronológico, os padrões de
+design escolhidos foram relacionados nas duas versões analisadas, transportando,
+quando necessário, a forma e função de um padrão presente mais antigo com o
+padrão analisado.
+
+\section{Identificação de pontos de redesign na janela principal do Transmission}
+
+Utilizando-se do mesmo ambiente de testes e procedimentos de aquisição de dados
+adquiridos na seção \ref{sec:chronologic-analysis} foram feitos registros
+gráficos do Transmission na versão mais recente do GNOME. Migrações de padrões
+de design identificados foram transportados para o contexto do Transmission.
+
+% TODO: Tweak this
+
+\section{Proposição de melhorias na interface do Transmission}
+
+Com os resultados prévios desta pesquisa e o HIG em mãos foram elencados pontos
+de retrabalho na interface do Transmission. A documentação oficial e fatores
+como utilização prévia por ambos aplicativos centrais e outras versões do
+Transmission foram levados em consideração em sua formulação.
+
+A prototipação de interfaces é uma técnica de evolução de design que tem como
+base a constante interação e avaliação dos resultados \cite{de2009client}.
+\citeonline[p. 2]{baumer1996user} separa em quatro classes os protótipos de
+interfaces gráficas:
+
+\begin{enumerate}
+  \item De apresentação
+  \item Funcional
+  \item Experimental
+  \item Piloto
+\end{enumerate}
+
+A utilização de protótipos funcionais permite implementar estrategicamente ambas
+interface gráfica e funcionalidade de um programa para averiguar o funcionamento
+de um conceito.
+
+Sendo o Transmission um software de código aberto, licenciado nos termos da GPL,
+seu código fonte é divulgado publicamente e pode ser alterado para fins de
+estudo.
+
+Com os pontos de retrabalho em mãos foi produzido um protótipo funcional para
+averiguar a validade das propostas e sua integração na plataforma GNOME.
