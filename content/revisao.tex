@@ -68,6 +68,56 @@ praticamente impossível disponibilizar uma experiência consistente ao usuário
 
 Para solucionar este problema ferramentas conhecidas como toolkits foram criadas
 sobre as abstrações disponibilizadas pelos WMs.
+\tikzstyle{inout}=[draw, fill=blue!20, text width=5em,
+    text centered, minimum height=2.5em,drop shadow]
+\tikzstyle{other} = [above, text width=5em, text centered]
+\tikzstyle{wm} = [inout, text width=10em, fill=red!20,
+    minimum height=6em, rounded corners, drop shadow]
+
+\def\blockdist{2.3}
+\def\edgedist{2.5}
+
+\begin{tikzpicture}
+    \node (wm) [wm]  {Gerenciador de Janelas};
+    \path (wm.west)+(-3.2,1.5) node (app1) [inout] {$Aplicativo$};
+    \path (wm.west)+(-3.2,0.5) node (app2)[inout] {$Aplicativo$};
+    \path (wm.west)+(-3.2,-1.0) node (dots1)[other] {$\vdots$};
+    \path (wm.west)+(-3.2,-2.0) node (app3)[inout] {$Aplicativo$};
+
+    \path (wm.east)+(3.2,1.5) node (monitor1) [inout] {$Monitor$};
+    \path (wm.east)+(3.2,0.5) node (monitor2)[inout] {$Televisao$};
+    \path (wm.east)+(3.2,-1.0) node (dots2)[other] {$\vdots$};
+    \path (wm.east)+(3.2,-2.0) node (monitor3)[inout] {$Projetor$};
+
+    \path [draw, ->] (app1.east) -- node [above] {}
+        (wm.160);
+    \path [draw, ->] (app2.east) -- node [above] {}
+        (wm.180);
+    \path [draw, ->] (app3.east) -- node [above] {}
+        (wm.200);
+
+    \path [draw, ->] (wm.380) -- node [above] {}
+        (monitor1.west);
+    \path [draw, ->] (wm.360) -- node [above] {}
+        (monitor2.west);
+    \path [draw, ->] (wm.340) -- node [above] {}
+        (monitor3.west);
+
+    \path (wm.south) +(0,-\blockdist) node (apps) {Funcionamento de um gerenciador de janelas};
+
+    \begin{pgfonlayer}{background}
+        \path (app1.west |- app1.north)+(-0.5,0.3) node (a) {};
+        \path (wm.south -| wm.east)+(+0.5,-0.3) node (b) {};
+        \path (monitor1.east |- apps.east)+(+0.5,-0.5) node (c) {};
+
+        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+            (a) rectangle (c);
+        \path (app1.north west)+(-0.2,0.2) node (a) {};
+
+    \end{pgfonlayer}
+
+\end{tikzpicture}
+
 
 \section{Toolkits Gráficos}
 
