@@ -1,7 +1,7 @@
 ## A graphical user interface redesign for Transmission torrent client based on GTK HIG 3.14
 
 This article, written in LaTeX, is my (@derekstavis) college term paper. It 
-tries to base scientifically the UI redesign work done by me for this awesome
+tries to academically base the UI redesign work done by me for this awesome
 torrent client. The source code is at github.com/derekstavis/transmission.
 
 ![Transmission's GTK 3.14 HIG redesign](/image/transmission-gtk.png?raw=true)
