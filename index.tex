@@ -26,6 +26,13 @@
 \usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 \usepackage{titlesec}
 
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
 % ---
 % CONFIGURAÇÕES DE PACOTES
 % ---
@@ -197,16 +204,6 @@
 % ----------------------------------------------------------
 \textual
 
-% PARTE - preparação da pesquisa
-% ----------------------------------------------------------
-%\part{Preparação da pesquisa}
-
-
-% Informações que devem ser alteradas
-% **************************************************
-% ---
-% Introdução
-% ---
 \chapter{INTRODUÇÃO}
 
 O lançamento de um guia de padrões para o desenvolvimento de interfaces gráficas
