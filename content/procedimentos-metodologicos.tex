@@ -1,11 +1,34 @@
 \chapter{PROCEDIMENTOS METODOLÓGICOS}
 
-Em um primeiro instante, com o objetivo de avaliar o processo de evolução da
-plataforma GNOME e seu design, foram identificadas aplicações centrais do
-GNOME 3.16 que já implementam os padrões de design definidos no HIG.
+Esta pesquisa aplicada tem como finalidade explorar casos de uso tanto da
+evolução de aplicativos centrais da plataforma GNOME quanto padrões de design
+utilizados em outras versões do cliente de torrent Transmission, produzindo
+resultados e aplicando-os para a geração de propostas de redesign da interface
+gráfica do Transmission voltado a plataforma GNOME.
 
-Pelo importante papel desempenhado na experiência GNOME, foram selecionadas três
-aplicações centrais:
+O objetivo da pesquisa aplicada é gerar inovanção frente a uma demanda ou
+necessidade, e seu desenvolvimento consiste na utilização dos conhecimentos
+adquiridos na pesquisa básica associados a pesquisa tecnológica, com a
+finalidade de obter aplicações práticas \cite{jung2003metodologia}.
+
+A aplicação prática desta pesquisa se concretiza na forma de um protótipo
+funcional de interface gráfica compatível com os padrões definidos no HIG 3.14
+para o cliente de torrent Transmission.
+
+\section{Estudo longitudinal dos padrões de design nas aplicações}
+\label{sec:chronologic-analysis}
+
+Em um primeiro instante, através de pesquisa exploratória com o objetivo de
+avaliar o processo de evolução da plataforma GNOME e seu design, foram
+identificadas aplicações centrais do GNOME 3.16 que já implementam os padrões de
+design definidos pelo \citeonline{gnome314hig}.
+
+\citeonline{jung2003metodologia} caracteriza a pesquisa exploratória pela
+extração de conhecimento sobre um dado fenômeno, sem grande teorização, visando
+descobrir práticas e diretrizes alternativas ao conhecimento existente.
+
+As aplicações centrais analisadas foram escolhidas pelo importante papel
+desempenhado na experiência GNOME:
 
 \begin{itemize}
     \item Nautilus -- Navegador de Arquivos
@@ -13,13 +36,11 @@ aplicações centrais:
     \item Gedit -- Editor de Arquivos de Texto
 \end{itemize}
 
-\section{Análise cronológica dos padrões de design nas aplicações}
-\label{sec:chronologic-analysis}
-
-Uma análise cronológica foi elaborada através da comparação de duas versões
-distantes do GNOME e das aplicações centrais escolhidas. Os parâmetros de
-análise foram escolhidos dentro dos padrões de design especificados pelo HIG
-\cite{hig314patterns}:
+Com propósito de avaliar a dinâmica do processo de design do GNOME ao longo do
+tempo, um estudo de caráter longitudinal foi elaborado, através da comparação de
+duas versões distantes do GNOME e das aplicações centrais escolhidas. Os
+parâmetros de estudo foram escolhidos dentro dos padrões de design especificados
+pelo HIG \cite{hig314patterns}:
 
 \begin{enumerate}
   \item Menu da Aplicação
@@ -29,36 +50,43 @@ análise foram escolhidos dentro dos padrões de design especificados pelo HIG
   \item Busca
 \end{enumerate}
 
-O processo de análise cronológica foi facilitado pela disponibilidade de imagens
+O processo de estudo longitudinal foi facilitado pela disponibilidade de imagens
 oficiais de um sistema operacional com todo software necessário para uma
 experiência GNOME básica.
 
 Detalhadas na tabela \ref{gnome-versions} estão as informações das versões
-escolhidas, dentre as disponíveis para análise \cite {gnome2015promo-usb}.
-
-\citeonline{popper1959logic} afirma que no ramo da pesquisa experimental é de
-suma importância a reprodutibilidade de um experimento, argumentando inclusive
-que ocorrências não reproduzíveis não tem significância para a ciência.
+escolhidas, dentre as disponíveis para estudo \cite {gnome2015promo-usb}.
 
 A soma de verificação de cada arquivo foi utilizada para checar a integridade do
 sistema operacional, e todas aplicações foram analisadas na versão oficial --
 sem alterações na configuração do sistema, troca de temas, fontes, etc.
 
-\begin{center}
-    \begin{tabularx}{\textwidth}{ | l | l | l | X | }
-    \hline
-    Versão do GNOME & Data de Modificação & Nome do arquivo & Soma de Verificação \\
-    \hline
-    3.6.0 & 08/10/2012 & GNOME-3.6.0.iso       & MD5    753c99ce2342f658
-                                                        65c1f74bc3722e44 \\
-    \hline
-    3.16  & 25/03/2015 & gnome-3.16.x86-64.iso & SHA256 4a6185a0aca89f15
-                                                        8f769d76d5a0086f
-                                                        0f1e9d709a5d80cd
-                                                        cf2b0d52d67ab2b2 \\
-    \hline
-    \end{tabularx}
-\end{center}
+
+\begin{table}[htb]
+\centering
+\ibgetab{
+  \caption{Sistemas operacionais e versões do GNOME}
+  \label{gnome-versions}
+}{
+  \begin{tabularx}{\textwidth}{ | l | l | l | X | }
+  \hline
+  Versão do GNOME & Data de Modificação & Nome do arquivo & Soma de Verificação \\
+  \hline
+  3.6.0 & 08/10/2012 & GNOME-3.6.0.iso       & MD5:
+                                               753c99ce2342f658
+                                               65c1f74bc3722e44 \\
+  \hline
+  3.16  & 25/03/2015 & gnome-3.16.x86-64.iso & SHA256:
+                                               4a6185a0aca89f15
+                                               8f769d76d5a0086f
+                                               0f1e9d709a5d80cd
+                                               cf2b0d52d67ab2b2 \\
+  \hline
+  \end{tabularx}
+}{
+  \fonte{Produzido pelo autor}
+}
+\end{table}
 
 A execução das imagens se deu em ambiente virtual, provisionado utilizando o
 software Oracle VM VirtualBox 4.3.26 com a seguinte configuração de máquina:
@@ -88,13 +116,13 @@ software Oracle VM VirtualBox 4.3.26 com a seguinte configuração de máquina:
 O registro gráfico das aplicações analisadas se deu através de captura de telas,
 quais podem ser encontradas na íntegra no apêndice \ref{app:chrono-screenshots}.
 
-% TODO: Falar mais sobre a metodologia de análise das aplicações centrais.
+% TODO: Falar mais sobre a metodologia de estudo das aplicações centrais.
 % Foram:
 % - Comparadas as capturas de tela
 % - Relacionados componentes gráficos equivalentes aos escolhidos
 % - Analise de uso de espaço
 
-Pelas diferenças existentes na análise de caráter cronológico, os padrões de
+Pelas diferenças existentes na estudo de caráter cronológico, os padrões de
 design escolhidos foram relacionados nas duas versões analisadas, transportando,
 quando necessário, a forma e função de um padrão presente mais antigo com o
 padrão analisado.
