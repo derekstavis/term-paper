@@ -116,8 +116,10 @@ praticamente impossível disponibilizar uma experiência consistente ao usuário
 
 \end{tikzpicture}
 
-A responsabilidade de preencher ferramentas conhecidas como toolkits foram
-criadas sobre as abstrações disponibilizadas pelos gerenciadores de janela.
+Através das abstrações disponibilizadas pelos gerenciadores de janelas múltiplas
+aplicações gráficas podem coexistir em um mesmo monitor. A construção deste tipo
+de aplicação não é de reponsabilidade do gerenciador de janelas, e para isso
+ferramentas conhecidas como toolkits foram criadas.
 
 \section{Toolkits Gráficos}
 
@@ -165,7 +167,7 @@ um conjunto de aplicações centrais, que incluem um gerenciador de janelas, um
 lançador de aplicações e diversos aplicativos centrais, como calculadora,
 editor de texto, gerenciadores de arquivos, redes, contatos, etc.
 
-\begin{figure}[htb]
+\begin{figure}[h!]
   \begin{center}
     \label{mclasen-new-apps}
     \caption{\textbf{Uma captura de tela do GNOME 3.16}}
@@ -242,12 +244,12 @@ com o intuito de reforçar a consistência visual e integração com o ambiente
 GNOME. A figura \ref{gnome-hig-patterns} ilustra alguns dos padrões de design
 documentados pelo HIG.
 
-\begin{figure}[htb]
+\begin{figure}[h!]
   \begin{center}
     \caption{\textbf{Padrões e suas aplicações}}
     \label{gnome-hig-patterns}
     \includegraphics[width=\textwidth]{image/hig/patterns.eps}
-    \fonte{GNOME 3.16 HIG - Patterns}
+    \fonte{\cite{hig314patterns}}
   \end{center}
 \end{figure}
 
@@ -271,7 +273,7 @@ A primeira versão do Transmission foi lançada em Setembro de 2005, já com uma
 interface gráfica baseada em GTK+, projetada sob as recomendação do HIG
 da época, publicada digitalmente em formato de livro \cite{gnome221hig}.
 
-\begin{figure}[htb]
+\begin{figure}[h!]
   \begin{center}
     \caption{\textbf{Transmission 2.28 no GNOME 3.16}}
     \includegraphics [width=\textwidth]{image/transmission/282-master/main-window.png}
