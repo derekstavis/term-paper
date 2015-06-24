@@ -1,34 +1,34 @@
 \chapter{PROCEDIMENTOS METODOLÓGICOS}
 
-Esta pesquisa aplicada tem como finalidade explorar casos de uso tanto da
-evolução de aplicativos centrais da plataforma GNOME quanto padrões de design
-utilizados em outras versões do cliente de torrent Transmission, produzindo
-resultados e aplicando-os para a geração de propostas de redesign da interface
-gráfica do Transmission voltado a plataforma GNOME.
+A presente pesquisa aplicada foi desenvolvida através da exploração de casos de
+uso tanto da evolução de aplicativos centrais da plataforma GNOME quanto padrões
+de design utilizados em outras versões do cliente de torrent Transmission.
 
-O objetivo da pesquisa aplicada é gerar inovanção frente a uma demanda ou
-necessidade, e seu desenvolvimento consiste na utilização dos conhecimentos
-adquiridos na pesquisa básica associados a pesquisa tecnológica, com a
-finalidade de obter aplicações práticas \cite{jung2003metodologia}.
+Segundo \citeonline{jung2003metodologia}, o objetivo da pesquisa aplicada é
+gerar inovação frente a uma demanda ou necessidade, e seu desenvolvimento
+consiste na utilização dos conhecimentos adquiridos na pesquisa básica
+associados a pesquisa tecnológica, com a finalidade de obter aplicações
+práticas.
 
-A aplicação prática desta pesquisa se concretiza na forma de um protótipo
-funcional de interface gráfica compatível com os padrões definidos no HIG 3.14
-para o cliente de torrent Transmission.
+O produto final desta pesquisa se concretiza na forma de um protótipo funcional
+de interface gráfica compatível com os padrões definidos no HIG 3.14 para o
+cliente de torrent Transmission.
 
 \section{Estudo longitudinal dos padrões de design nas aplicações}
 \label{sec:chronologic-analysis}
 
-Em um primeiro instante, através de pesquisa exploratória com o objetivo de
-avaliar o processo de evolução da plataforma GNOME e seu design, foram
-identificadas aplicações centrais do GNOME 3.16 que já implementam os padrões de
-design definidos pelo \citeonline{gnome314hig}.
+Através de pesquisa exploratória com o objetivo de avaliar o processo de
+evolução da plataforma GNOME e seu design, foram identificadas aplicações
+centrais do GNOME 3.16 que já implementam os padrões de design definidos pelo
+HIG \cite{gnome314hig}.
 
 \citeonline{jung2003metodologia} caracteriza a pesquisa exploratória pela
 extração de conhecimento sobre um dado fenômeno, sem grande teorização, visando
 descobrir práticas e diretrizes alternativas ao conhecimento existente.
 
-As aplicações centrais analisadas foram escolhidas pelo importante papel
-desempenhado na experiência GNOME:
+Foram escolhidas três aplicações centrais a serem analisadas. Pelo papel
+significativo desempenhado na experiência GNOME foram selecionadas as seguintes
+aplicações:
 
 \begin{itemize}
     \item Nautilus -- Navegador de Arquivos
@@ -37,33 +37,22 @@ desempenhado na experiência GNOME:
 \end{itemize}
 
 Com propósito de avaliar a dinâmica do processo de design do GNOME ao longo do
-tempo, um estudo de caráter longitudinal foi elaborado, através da comparação de
-duas versões distantes do GNOME e das aplicações centrais escolhidas. Os
-parâmetros de estudo foram escolhidos dentro dos padrões de design especificados
-pelo HIG \cite{hig314patterns}:
+tempo, um estudo de caráter longitudinal foi elaborado nas três aplicações
+escolhidas, através da comparação de duas versões distantes do GNOME e das
+aplicações centrais escolhidas.
 
-\begin{enumerate}
-  \item Menu da Aplicação
-  \item Janela Primária
-  \item Barra de Título
-  \item Comutador de Visão
-  \item Busca
-\end{enumerate}
-
-O processo de estudo longitudinal foi facilitado pela disponibilidade de imagens
-oficiais de um sistema operacional com todo software necessário para uma
-experiência GNOME básica.
-
-Detalhadas na tabela \ref{gnome-versions} estão as informações das versões
-escolhidas, dentre as disponíveis para estudo \cite {gnome2015promo-usb}.
+A montagem do ambiente necessário para a execução do estudo longitudinal foi
+facilitada pela distribuição oficial de sistemas operacionais com todo software
+necessário para uma experiência GNOME básica, prontos para usar através da
+transferência para uma mídia inicializável \cite{gnome2015promo-usb}. Detalhadas
+na \autoref{gnome-versions} estão as informações das versões escolhidas, dentre
+as disponíveis para estudo.
 
 A soma de verificação de cada arquivo foi utilizada para checar a integridade do
 sistema operacional, e todas aplicações foram analisadas na versão oficial --
 sem alterações na configuração do sistema, troca de temas, fontes, etc.
 
-
 \begin{table}[htb]
-\centering
 \ibgetab{
   \caption{Sistemas operacionais e versões do GNOME}
   \label{gnome-versions}
@@ -84,69 +73,54 @@ sem alterações na configuração do sistema, troca de temas, fontes, etc.
   \hline
   \end{tabularx}
 }{
-  \fonte{Produzido pelo autor}
+  \fonte{\cite{gnome2015promo-usb}}
 }
 \end{table}
 
-A execução das imagens se deu em ambiente virtual, provisionado utilizando o
-software Oracle VM VirtualBox 4.3.26 com a seguinte configuração de máquina:
+Dentre os diversos padrões de design especificados pelo HIG
+\cite{hig314patterns} foram selecionados cinco padrões de interesse a serem
+analisados no estudo:
 
-\begin{center}
-    \begin{tabular}{ | l | l | }
-    \hline
-    \multicolumn{2}{| l |}{Máquina} \\
-    \hline
-    Memória Base  & 4096MB \\
-    Processadores & 2 \\
-    Aceleração    & VT-x/AMD-V, Nested Paging, PAE/NX \\
-    \hline
-    \multicolumn{2}{| l |}{Vídeo} \\
-    \hline
-    Memória       & 128MB \\
-    Aceleração    & 3D \\
-    \hline
-    \multicolumn{2}{| l |}{Sistema Operacional} \\
-    \hline
-    Tipo         & Linux \\
-    Versão       & Fedora \\
-    \hline
-    \end{tabular}
-\end{center}
+\begin{enumerate}
+  \item Menu da Aplicação
+  \item Janela Primária
+  \item Barra de Título
+  \item Comutador de Visão
+  \item Busca
+\end{enumerate}
 
-O registro gráfico das aplicações analisadas se deu através de captura de telas,
-quais podem ser encontradas na íntegra no apêndice \ref{app:chrono-screenshots}.
+As variáveis observadas no estudo incluiram, porém não se limitaram a (i) área
+útil vs controles, onde foi analisada a razão entre a quantidade de pixels de
+área útil versus controles da aplicação e (ii) relocação de funcionalidade,
+onde foram analisadas mudanças operacionais em um mais elementos de interface,
+sendo estas de caráter quantitativo e qualitativo, respectivamente.
 
-% TODO: Falar mais sobre a metodologia de estudo das aplicações centrais.
-% Foram:
-% - Comparadas as capturas de tela
-% - Relacionados componentes gráficos equivalentes aos escolhidos
-% - Analise de uso de espaço
+A obtenção da razão área útil versus controles foi feita através da medição em
+pixels da janela principal de cada aplicativo Foi considerada área útil a área
+do aplicativo na qual a informação principal é apresentada, conforme
+exemplificado na \autoref{workarea-chrome-ratio}. No caso do Nautilus, a lista
+de arquivos é a área principal, do Evince, o documento apresentado, e no caso do
+Gedit, a área de edição de texto.
 
-Pelas diferenças existentes na estudo de caráter cronológico, os padrões de
-design escolhidos foram relacionados nas duas versões analisadas, transportando,
-quando necessário, a forma e função de um padrão presente mais antigo com o
-padrão analisado.
+\begin{figure}[h!]
+  \begin{center}
+    \caption{\textbf{Medição da razão área útil vs controles}}
+    \includegraphics[scale=0.7]{image/workarea-chrome-ratio.eps}
+    \fonte{Do Autor}
+    \label{workarea-chrome-ratio}
+  \end{center}
+\end{figure}
 
-\section{Identificação de pontos de redesign na janela principal do Transmission}
-
-Utilizando-se do mesmo ambiente de testes e procedimentos de aquisição de dados
-estabelecidos na seção \ref{sec:chronologic-analysis} foram feitos registros
-gráficos do Transmission na versão mais recente do GNOME. Migrações de padrões
-de design identificados foram transportados para o contexto do Transmission.
-
-% TODO: Tweak this
+A relocação de funcionalidades analisou a transição de um elemento de interface,
+onde um menu, por exemplo, pode ter sido transformado em um botão, movido para
+outro local, etc.
 
 \section{Proposição de melhorias na interface do Transmission}
 
-Com os resultados prévios desta pesquisa e o HIG em mãos foram elencados pontos
-de retrabalho na interface do Transmission. A documentação oficial e fatores
-como utilização prévia por ambos aplicativos centrais e outras versões do
-Transmission foram levados em consideração em sua formulação.
-
-A prototipação de interfaces é uma técnica de evolução de design que tem como
-base a constante interação e avaliação dos resultados \cite{de2009client}.
-\citeonline[p. 2]{baumer1996user} separa em quatro classes os protótipos de
-interfaces gráficas:
+\citeonline{de2009client} afirmam que a prototipação de interfaces é uma técnica
+de evolução de design que tem como base a constante interação e avaliação dos
+resultados. \citeonline[p. 2]{baumer1996user} classifica e separa em quatro
+classes os protótipos de interfaces gráficas:
 
 \begin{enumerate}
   \item De apresentação
@@ -155,13 +129,14 @@ interfaces gráficas:
   \item Piloto
 \end{enumerate}
 
-A utilização de protótipos funcionais permite implementar estrategicamente ambas
-interface gráfica e funcionalidade de um programa para averiguar o funcionamento
-de um conceito.
+Pela (i) maleabilidade de implementar estrategicamente ambas interface gráfica e
+funcionalidade de um programa, com o propósito de averiguar o funcionamento de
+um conceito e (ii) pelo fato do Transmission permitir alterações em seu código-
+fonte através de sua licença GPL o protótipo funcional foi escolhido como método
+experimental para a geração de propostas de melhorias na interface do
+Transmission.
 
-Sendo o Transmission um software de código aberto, licenciado nos termos da GPL,
-seu código fonte é divulgado publicamente e pode ser alterado para fins de
-estudo.
-
-Com os pontos de retrabalho em mãos foi produzido um protótipo funcional para
-averiguar a validade das propostas e sua integração na plataforma GNOME.
+O protótipo funcional foi gerado através de alterações experimentais no código-
+fonte do Transmission objetivando modificar sua interface gráfica utilizando
+como base as tendências encontradas no estudo logitudinal das aplicações
+centrais e também as diretivas estabelecidas no HIG.
