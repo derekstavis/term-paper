@@ -8,6 +8,7 @@
     chapter=TITLE,      % títulos de capítulos convertidos em letras maiúsculas
     section=TITLE,      % títulos de seções convertidos em letras maiúsculas
     % -- opções do pacote babel --
+    english,
     brazil              % o último idioma é o principal do documento
 ]{abntex2}
 
@@ -206,34 +207,29 @@ orientadas ao ambiente gráfico GNOME foi de suma importância para alinhar
 desenvolvedores ao intuito deste ambiente gráfico de código aberto.
 
 O guia contribui para que o GNOME passe a ter mais harmonia visual, seja através
-dos aplicativos centrais, -- os primeiros a receber tratamento estético -- ou
+dos aplicativos centrais -- os primeiros a receber tratamento estético -- ou
 por aplicativos de terceiros, que devem se adaptar utilizando o guia como
 referência.
 
 Aplicativos que não se adequam ao guia passam a apresentar-se defasados,
 perdendo pontos em usabilidade e em beleza, aumentando a taxa de rejeição.
-Mantenedores de aplicativos baseados no toolkit GTK devem, portanto, dedicar
-atenção para o fator usabilidade, mantendo-se compatível com o progresso da
-plataforma GNOME.
+Mantenedores de aplicativos baseados no \textit{toolkit} GTK+ devem, portanto,
+dedicar atenção para o fator usabilidade, mantendo-se compatível com o progresso
+da plataforma GNOME.
 
 Um aplicativo que sofre deste efeito e necessita dedicação é o Transmission, um
-cliente de torrent popular, que foi desenvolvido na era GTK+ 2, onde os
+cliente de \textit{torrent} popular, que foi desenvolvido na era GTK+ 2, onde os
 requisitos, recursos e a visão da plataforma GNOME eram diferentes
 \cite{gnome221hig}.
-
-Esta pesquisa tem como objetivo avançar desenvolvimento do Transmission,
-propondo melhorias visuais na interface gráfica, baseadas na análise de alguns
-casos de uso de aplicativos centrais da plataforma GNOME, versão 3.16, e tem a
-pretensão de descrever o processo de pensamento por trás das adaptações de
-interface gráficas propostas.
 
 \section{OBJETIVOS}
 
 \subsection{Objetivo geral}
 
-Propor adaptações na interface gráfica GTK do cliente de torrent Transmission de
-acordo com as recomendações do HIG versão 3.14, trazendo mais harmonia para seus
-utilizadores na plataforma GNOME.
+Propor adaptações na interface gráfica GTK+ do cliente de torrent Transmission
+através da análise de casos de uso de aplicativos centrais da plataforma GNOME,
+versão 3.16 acordo com as recomendações do HIG versão 3.14, trazendo mais
+harmonia para seus utilizadores na plataforma GNOME.
 
 \subsection{Objetivos específicos}
 
@@ -249,7 +245,7 @@ utilizadores na plataforma GNOME.
 
 \include{content/resultados-e-discussoes}
 
-\chapter{CONCLUSÃO}
+\include{content/conclusao}
 
 \bibliography{content/referencias}
 
