@@ -2,7 +2,8 @@
 
 A presente pesquisa aplicada foi desenvolvida através da exploração de casos de
 uso tanto da evolução de aplicativos centrais da plataforma GNOME quanto padrões
-de design utilizados em outras versões do cliente de torrent Transmission.
+de design utilizados em outras versões do cliente de torrent
+\textit{Transmission}.
 
 Segundo \citeonline{jung2003metodologia}, o objetivo da pesquisa aplicada é
 gerar inovação frente a uma demanda ou necessidade, e seu desenvolvimento
@@ -12,7 +13,7 @@ práticas.
 
 O produto final desta pesquisa se concretiza na forma de um protótipo funcional
 de interface gráfica compatível com os padrões definidos no HIG 3.14 para o
-cliente de torrent Transmission.
+cliente de torrent \textit{Transmission}.
 
 \section{Estudo longitudinal dos padrões de design nas aplicações}
 \label{sec:chronologic-analysis}
@@ -31,9 +32,9 @@ significativo desempenhado na experiência GNOME foram selecionadas as seguintes
 aplicações:
 
 \begin{itemize}
-    \item Nautilus -- Navegador de Arquivos
-    \item Evince -- Visualizador de Documentos Digitais
-    \item Gedit -- Editor de Arquivos de Texto
+    \item Nautilus -- Navegador de Arquivos\footnote{Disponível em https://wiki.gnome.org/Apps/Nautilus, acesso em Maio de 2015}
+    \item Evince -- Visualizador de Documentos Digitais\footnote{Disponível em https://wiki.gnome.org/Apps/Evince, acesso em Maio de 2015}
+    \item Gedit -- Editor de Arquivos de Texto\footnote{Disponível em https://wiki.gnome.org/Apps/Gedit, acesso em Maio de 2015}
 \end{itemize}
 
 Com propósito de avaliar a dinâmica do processo de design do GNOME ao longo do
@@ -44,7 +45,8 @@ aplicações centrais escolhidas.
 A montagem do ambiente necessário para a execução do estudo longitudinal foi
 facilitada pela distribuição oficial de sistemas operacionais com todo software
 necessário para uma experiência GNOME básica, prontos para usar através da
-transferência para uma mídia inicializável \cite{gnome2015promo-usb}. Detalhadas
+transferência para uma mídia inicializável \footnote{Disponível em
+https://download.gnome.org/misc/promo-usb, acesso em Maio de 2015}. Detalhadas
 na \autoref{gnome-versions} estão as informações das versões escolhidas, dentre
 as disponíveis para estudo.
 
@@ -61,61 +63,53 @@ sem alterações na configuração do sistema, troca de temas, fontes, etc.
   \hline
   Versão do GNOME & Data de Modificação & Nome do arquivo & Soma de Verificação \\
   \hline
-  3.6.0 & 08/10/2012 & GNOME-3.6.0.iso       & MD5:
-                                               753c99ce2342f658
-                                               65c1f74bc3722e44 \\
+  3.6.0 & 08/10/2012 & GNOME-3.6.0.iso       & MD5 - 753c99ce2342f658
+                                                     65c1f74bc3722e44 \\
   \hline
-  3.16  & 25/03/2015 & gnome-3.16.x86-64.iso & SHA256:
-                                               4a6185a0aca89f15
-                                               8f769d76d5a0086f
-                                               0f1e9d709a5d80cd
-                                               cf2b0d52d67ab2b2 \\
+  3.16  & 25/03/2015 & gnome-3.16.x86-64.iso & SHA256 - 4a6185a0aca89f15
+                                                        8f769d76d5a0086f
+                                                        0f1e9d709a5d80cd
+                                                        cf2b0d52d67ab2b2 \\
   \hline
   \end{tabularx}
 }{
-  \fonte{\cite{gnome2015promo-usb}}
+  \fonte{Do Autor (2015)}
 }
 \end{table}
 
-Dentre os diversos padrões de design especificados pelo HIG
-\cite{hig314patterns} foram selecionados cinco padrões de interesse a serem
-analisados no estudo:
+Os padrões de design incluídos na análise foram os especificados pelo HIG
+\cite{hig314patterns}, e as variáveis observadas no estudo incluíram, porém não
+se limitaram a (i) área útil vs controles, onde foi analisada a razão entre a
+quantidade de pixels de área útil versus controles da aplicação e (ii) relocação
+de funcionalidade, onde foram analisadas mudanças operacionais em um ou mais
+elementos de interface, sendo estas de caráter quantitativo e qualitativo,
+respectivamente.
 
-\begin{enumerate}
-  \item Menu da Aplicação
-  \item Janela Primária
-  \item Barra de Título
-  \item Comutador de Visão
-  \item Busca
-\end{enumerate}
-
-As variáveis observadas no estudo incluiram, porém não se limitaram a (i) área
-útil vs controles, onde foi analisada a razão entre a quantidade de pixels de
-área útil versus controles da aplicação e (ii) relocação de funcionalidade,
-onde foram analisadas mudanças operacionais em um mais elementos de interface,
-sendo estas de caráter quantitativo e qualitativo, respectivamente.
-
-A obtenção da razão área útil versus controles foi feita através da medição em
-pixels da janela principal de cada aplicativo Foi considerada área útil a área
-do aplicativo na qual a informação principal é apresentada, conforme
-exemplificado na \autoref{workarea-chrome-ratio}. No caso do Nautilus, a lista
-de arquivos é a área principal, do Evince, o documento apresentado, e no caso do
-Gedit, a área de edição de texto.
-
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \begin{center}
     \caption{\textbf{Medição da razão área útil vs controles}}
     \includegraphics[scale=0.7]{image/workarea-chrome-ratio.eps}
-    \fonte{Do Autor}
+    \fonte{Do Autor (2015)}
     \label{workarea-chrome-ratio}
   \end{center}
 \end{figure}
 
-A relocação de funcionalidades analisou a transição de um elemento de interface,
-onde um menu, por exemplo, pode ter sido transformado em um botão, movido para
-outro local, etc.
+A obtenção da razão área útil versus controles foi feita na janela principal de
+cada aplicativo através da fórmula $razao = areacontroles / areautil$.
+Considera-se $areautil$ a área do aplicativo na qual a informação principal é
+apresentada, enquanto a $areacontroles$ pode ser obtida através da subtração da
+$areautil$ do tamanho total da janela, em pixels, conforme exemplificado na
+\autoref {workarea-chrome-ratio}. No caso do \textit{Nautilus}, a lista de
+arquivos e barra lateral formam a área principal, no \textit{Evince}, o
+documento apresentado, e no caso do \textit{Gedit}, a área de edição de texto
+(incluindo as abas de arquivos abertos).
 
-\section{Proposição de melhorias na interface do Transmission}
+A análise de relocação de funcionalidades foi feita através da correlação de um
+elemento de interface existente na versão mais antiga com um elemento
+correspondente na versão mais recente. Por exemplo, a funcionalidade de um menu,
+na versão mais antiga, encontrado na forma de um botão na versão mais recente.
+
+\section{Proposição de melhorias na interface do \textit{Transmission}}
 
 \citeonline{de2009client} afirmam que a prototipação de interfaces é uma técnica
 de evolução de design que tem como base a constante interação e avaliação dos
@@ -131,12 +125,12 @@ classes os protótipos de interfaces gráficas:
 
 Pela (i) maleabilidade de implementar estrategicamente ambas interface gráfica e
 funcionalidade de um programa, com o propósito de averiguar o funcionamento de
-um conceito e (ii) pelo fato do Transmission permitir alterações em seu código-
-fonte através de sua licença GPL o protótipo funcional foi escolhido como método
-experimental para a geração de propostas de melhorias na interface do
-Transmission.
+um conceito e (ii) pelo fato do \textit{Transmission} permitir alterações em seu
+código- fonte através de sua licença GPL o protótipo funcional foi escolhido
+como método experimental para a geração de propostas de melhorias na interface
+do \textit{Transmission}.
 
 O protótipo funcional foi gerado através de alterações experimentais no código-
-fonte do Transmission objetivando modificar sua interface gráfica utilizando
-como base as tendências encontradas no estudo logitudinal das aplicações
-centrais e também as diretivas estabelecidas no HIG.
+fonte do \textit{Transmission} objetivando modificar sua interface gráfica
+utilizando como base as tendências encontradas no estudo logitudinal das
+aplicações centrais e também as diretivas estabelecidas no HIG.
