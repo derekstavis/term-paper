@@ -4,8 +4,7 @@ O desenvolvimento de mecanismos que automatizam tarefas existe desde a idade das
 pedras, onde hominídeos produziam ferramentas para auxílio próprio. A
 transversalidade do conhecimento e da experimentação nos levou a descoberta de
 novas metodologias e o aperfeiçoamento de técnicas, consequentemente modificando
-a forma com que o ser humano interage com o mundo
-\cite[p. 1]{sartori2010neurociencia}.
+a forma com que o ser humano interage com o mundo.
 
 \section{Interfaces gráficas com o usuário}
 
@@ -16,8 +15,9 @@ tarefas mais difíceis, deixando estes, seus operadores, apenas com a
 responsabilidade de pilotá-las de forma simples e segura.
 
 O advento de tecnologias multimídias interativas como computadores, celulares e
-tablets elevou o patamar da criação de interfaces e gestão de tarefas ao estado
-da arte, agregando conhecimentos transversais de artistas visuais a músicos.
+\textit{tablets} elevou o patamar da criação de interfaces e gestão de tarefas
+ao estado da arte, agregando conhecimentos transversais de artistas visuais a
+músicos.
 
 \citeonline[p. 1]{ferreira2005semiotics} afirmam que a criação de ``interfaces
 com o usuário ainda está mais para arte do que para ciência.'', e justificam,
@@ -27,8 +27,9 @@ engenharia de como conduzir o processo de design e produzir bons designs pela
 primeira vez''.
 
 Interfaces gráficas modernas foram alcançadas através da associação entre
-hardware e software, podendo utilizar de um ou mais dispositivos de entrada e
-saída, com o intuito de promover usabilidade e fácil adaptação.
+\textit{hardware} e \textit{software}, podendo utilizar de um ou mais
+dispositivos de entrada e saída, com o intuito de promover usabilidade e fácil
+adaptação.
 
 Dispositivos de entrada transformam coordenadas do mundo real para o mundo
 virtual, registrando condições externas que podem ser modificadas através da
@@ -53,19 +54,6 @@ sistema do Xerox PARC, é largamente utilizada até hoje por grandes sistemas
 tanto comerciais quanto de código aberto, como Windows, OS X, GNOME, KDE
 \cite[p. 7]{myers2000past}.
 
-Um gerenciador de janelas moderno também tem por finalidade coordenar a exibição
-de um conjunto de janelas em um conjunto de monitores, escutar por eventos de
-entrada (mouse, teclado) e informar os responsáveis pelas janelas sobre
-alterações no layout de tela (dimensões da tela, dimensões da janela, espaço de
-cor).
-
-Gerenciadores de janelas, porém, não tem por responsabilidade preencher as áreas
-de desenho com gráficos, e como suas APIs operam geralmente a nível de pixel, a
-tarefa de escrever um programa gráfico acaba sendo demorada e entediante. Além
-disso, se cada desenvolvedor criasse seus próprios componentes, seria
-praticamente impossível disponibilizar uma experiência consistente ao usuário
-\apudonline{rosenthal1988simple}{myers2000past}.
-
 \tikzstyle{inout}=[draw, fill=blue!20, text width=5em,
     text centered, minimum height=2.5em,drop shadow]
 \tikzstyle{other} = [above, text width=5em, text centered]
@@ -75,79 +63,98 @@ praticamente impossível disponibilizar uma experiência consistente ao usuário
 \def\blockdist{2.3}
 \def\edgedist{2.5}
 
-\begin{tikzpicture}
-    \node (wm) [wm]  {Gerenciador de Janelas};
-    \path (wm.west)+(-3.2,1.5) node (app1) [inout] {$Aplicativo$};
-    \path (wm.west)+(-3.2,0.5) node (app2)[inout] {$Aplicativo$};
-    \path (wm.west)+(-3.2,-1.0) node (dots1)[other] {$\vdots$};
-    \path (wm.west)+(-3.2,-2.0) node (app3)[inout] {$Aplicativo$};
+\begin{figure}[!ht]
+  \begin{center}
+    \caption{\textbf{Funcionamento de um gerenciador de janelas}}
+    \begin{tikzpicture}
+        \node (wm) [wm]  {Gerenciador de Janelas};
+        \path (wm.west)+(-3.2,1.5) node (app1) [inout] {$Aplicativo$};
+        \path (wm.west)+(-3.2,0.5) node (app2)[inout] {$Aplicativo$};
+        \path (wm.west)+(-3.2,-1.0) node (dots1)[other] {$\vdots$};
+        \path (wm.west)+(-3.2,-2.0) node (app3)[inout] {$Aplicativo$};
 
-    \path (wm.east)+(3.2,1.5) node (monitor1) [inout] {$Monitor$};
-    \path (wm.east)+(3.2,0.5) node (monitor2)[inout] {$Televisao$};
-    \path (wm.east)+(3.2,-1.0) node (dots2)[other] {$\vdots$};
-    \path (wm.east)+(3.2,-2.0) node (monitor3)[inout] {$Projetor$};
+        \path (wm.east)+(3.2,1.5) node (monitor1) [inout] {$Monitor$};
+        \path (wm.east)+(3.2,0.5) node (monitor2)[inout] {$Televisao$};
+        \path (wm.east)+(3.2,-1.0) node (dots2)[other] {$\vdots$};
+        \path (wm.east)+(3.2,-2.0) node (monitor3)[inout] {$Projetor$};
 
-    \path [draw, ->] (app1.east) -- node [above] {}
-        (wm.160);
-    \path [draw, ->] (app2.east) -- node [above] {}
-        (wm.180);
-    \path [draw, ->] (app3.east) -- node [above] {}
-        (wm.200);
+        \path [draw, ->] (app1.east) -- node [above] {}
+            (wm.160);
+        \path [draw, ->] (app2.east) -- node [above] {}
+            (wm.180);
+        \path [draw, ->] (app3.east) -- node [above] {}
+            (wm.200);
 
-    \path [draw, ->] (wm.380) -- node [above] {}
-        (monitor1.west);
-    \path [draw, ->] (wm.360) -- node [above] {}
-        (monitor2.west);
-    \path [draw, ->] (wm.340) -- node [above] {}
-        (monitor3.west);
+        \path [draw, ->] (wm.380) -- node [above] {}
+            (monitor1.west);
+        \path [draw, ->] (wm.360) -- node [above] {}
+            (monitor2.west);
+        \path [draw, ->] (wm.340) -- node [above] {}
+            (monitor3.west);
 
-    \path (wm.south) +(0,-\blockdist) node (apps) {Funcionamento de um gerenciador de janelas};
+        \begin{pgfonlayer}{background}
+            \path (app1.west |- app1.north)+(-0.5,0.3) node (a) {};
+            \path (wm.south -| wm.east)+(+0.5,-0.3) node (b) {};
+            \path (monitor1.east |- monitor3.east)+(+0.5,-0.9) node (c) {};
 
-    \begin{pgfonlayer}{background}
-        \path (app1.west |- app1.north)+(-0.5,0.3) node (a) {};
-        \path (wm.south -| wm.east)+(+0.5,-0.3) node (b) {};
-        \path (monitor1.east |- apps.east)+(+0.5,-0.5) node (c) {};
+            \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+                (a) rectangle (c);
+            \path (app1.north west)+(-0.2,0.2) node (a) {};
 
-        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
-            (a) rectangle (c);
-        \path (app1.north west)+(-0.2,0.2) node (a) {};
+        \end{pgfonlayer}
 
-    \end{pgfonlayer}
+    \end{tikzpicture}
+    \label{window-manager-workflow}
+    \fonte{Do Autor (2015)}
+  \end{center}
+\end{figure}
 
-\end{tikzpicture}
+Um gerenciador de janelas moderno também tem por finalidade coordenar a exibição
+de um conjunto de janelas em um conjunto de monitores (conforme fluxograma da
+\autoref{window-manager-workflow}), escutar por eventos de entrada (mouse,
+teclado) e informar os responsáveis pelas janelas sobre alterações no layout de
+tela (dimensões da tela, dimensões da janela, espaço de cor).
+
+Gerenciadores de janelas, porém, não tem por responsabilidade preencher as áreas
+de desenho com gráficos, e como suas \textit{Application Programming Interfaces}
+(APIs) operam geralmente a nível de pixel, a tarefa de escrever um programa
+gráfico acaba sendo demorada e entediante. Além disso, se cada desenvolvedor
+criasse seus próprios componentes, seria praticamente impossível disponibilizar
+uma experiência consistente ao usuário
+\apud{rosenthal1988simple}{myers2000past}.
 
 Através das abstrações disponibilizadas pelos gerenciadores de janelas múltiplas
 aplicações gráficas podem coexistir em um mesmo monitor. A construção deste tipo
 de aplicação não é de reponsabilidade do gerenciador de janelas, e para isso
-ferramentas conhecidas como toolkits foram criadas.
+ferramentas conhecidas como \textit{toolkits} foram criadas.
 
-\section{Toolkits Gráficos}
+\section{\textit{Toolkits} Gráficos}
 
-A principal finalidade de um toolkit é viabilizar a interação humano-computador,
-permitindo a manipulação direta de elementos gráficos metafóricos, chamados
-widgets. Widgets são os componentes funcionais essenciais da interface gráfica e
-através deles o usuário pode interagir com programas de computador.
+A principal finalidade de um \textit{toolkit} é viabilizar a interação humano-
+computador, permitindo a manipulação direta de elementos gráficos metafóricos,
+chamados widgets. Widgets são os componentes funcionais essenciais da interface
+gráfica e através deles o usuário pode interagir com programas de computador.
 
-Com seus próprios conjuntos de widgets, toolkits possibilitam a criação de
-programas com alta consistência visual e comportamental, através da aplicação de
-estilo e/ou comportamento próprios nos componentes de interface gráfica com o
+Com seus próprios conjuntos de widgets, \textit{toolkits} possibilitam a criação
+de programas com alta consistência visual e comportamental, através da aplicação
+de estilo e/ou comportamento próprios nos componentes de interface gráfica com o
 usuário \cite{myers2000past}.
 
-As responsabilidades de um toolkit vão de desenhar até processar eventos de um
-ou mais dispositivos de entrada (mouse, teclado, painel de toque), verificando a
-colisão de um evento com um widget (clique em um botão, por exemplo), traduzindo
-e informando os eventos para a aplicação proprietária.
+As responsabilidades de um \textit{toolkit} vão de desenhar até processar
+eventos de um ou mais dispositivos de entrada (mouse, teclado, painel de toque),
+verificando a colisão de um evento com um widget (clique em um botão, por
+exemplo), traduzindo e informando os eventos para a aplicação proprietária.
 
-Do ponto de vista do programador a finalidade de um toolkit é abstrair
+Do ponto de vista do programador a finalidade de um \textit{toolkit} é abstrair
 características de baixo nível, promovendo a reutilização de código, e
 amortizando o custo de desenvolvimento, reduzindo o tempo de desenvolvimento de
-novos projetos \citeonline{haefliger2008code}.
+novos projetos \cite{haefliger2008code}.
 
-Toolkits multiplataforma podem ser utilizados para escrever interfaces gráficas
-portáveis, permitindo com que o mesmo código seja compilado para um sistema
-operacional diferente do em que foi escrito e funcione da mesma forma.
+\textit{Toolkits} multiplataforma podem ser utilizados para escrever interfaces
+gráficas portáveis, permitindo com que o mesmo código seja compilado para um
+sistema operacional diferente do em que foi escrito e funcione da mesma forma.
 
-\section{O toolkit GTK e a plataforma GNOME}
+\section{O \textit{toolkit} GTK+ e a plataforma GNOME}
 
 Existem diversas opções de gerenciadores de janela de código aberto, comumente
 incluídos em distribuições de Linux. O GNOME, um ambiente gráfico bastante
@@ -167,20 +174,20 @@ um conjunto de aplicações centrais, que incluem um gerenciador de janelas, um
 lançador de aplicações e diversos aplicativos centrais, como calculadora,
 editor de texto, gerenciadores de arquivos, redes, contatos, etc.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \begin{center}
     \label{mclasen-new-apps}
     \caption{\textbf{Uma captura de tela do GNOME 3.16}}
     \includegraphics [width=\textwidth]{image/mclasen-new-apps.png}
-    \fonte{Matias Clasen}
+    \fonte{\cite{gnome316mclasen}}
   \end{center}
 \end{figure}
 
-A plataforma GNOME e seus aplicativos centrais são baseados no toolkit GTK. O
-GTK + é formado por um conjunto de ferramentas multi-plataforma para criar
-interfaces gráficas de usuário. Por oferecer um conjunto completo de widgets é
-adequado para projetos desde pequenas ferramentas pontuais até suítes completas
-de aplicativos \cite{gtk-org}.
+A plataforma GNOME e seus aplicativos centrais são baseados no \textit{toolkit}
+GTK+. O GTK+ é formado por um conjunto de ferramentas multi-plataforma para
+criar interfaces gráficas de usuário. Por oferecer um conjunto completo de
+widgets é adequado para projetos desde pequenas ferramentas pontuais até suítes
+completas de aplicativos \cite{gtk-org}.
 
 \section{Software livre e o desenvolvimento contínuo}
 
@@ -192,7 +199,7 @@ de vista sejam levados em consideração na evolução da plataforma.
 Apesar dos prós existentes na distribuição de esforços também existem os contras
 -- Projetos que são desenvolvidos paralelamente nem sempre avançam na mesma
 velocidade. O contra fica mais sério quando um projeto depende do outro, como é
-o caso de toolkits e programas que consomem suas APIs.
+o caso de \textit{toolkits} e programas que consomem suas APIs.
 
 Quando ocorrem mudanças na interface de programação de uma framework ou
 biblioteca, softwares dependentes tem de se adaptar as mudanças. O efeito
@@ -219,14 +226,14 @@ a usabilidade como uma combinação das seguintes características:
     \item Retenção de usuários pelo tempo
 \end{itemize}
 
-Em prol da usabilidade a maioria dos toolkits aplica um modelo próprio de
-apresentação, organização, interação e estilização de widgets, atendendo aos
+Em prol da usabilidade a maioria dos \textit{toolkits} aplica um modelo próprio
+de apresentação, organização, interação e estilização de widgets, atendendo aos
 requisitos do tipo de ambiente onde é executado (desktop, tablet e celular).
 
 \section{HIG ou Human Interface Guidelines}
 
 Divulgado no ano de 2014, acompanhando a versão 3.14 da plataforma GNOME, sob o
-título de Human Interface Guidelines, o conjunto de padrões de design
+título de \textit{Human Interface Guidelines}, o conjunto de padrões de design
 oficialmente promovido pela GNOME Foundation busca promover a máxima integração
 de interfaces gráficas GTK+ na plataforma GNOME.
 
@@ -239,12 +246,12 @@ de interfaces gráficas GTK+ na plataforma GNOME.
 \end{citacao}
 
 O HIG, como também é chamado, é uma literatura ilustrada de diretrizes
-recomendadas no desenvolvimento de interfaces gráficas que utilizem o toolkit,
-com o intuito de reforçar a consistência visual e integração com o ambiente
-GNOME. A figura \ref{gnome-hig-patterns} ilustra alguns dos padrões de design
-documentados pelo HIG.
+recomendadas no desenvolvimento de interfaces gráficas que utilizem o
+\textit{toolkit}, com o intuito de reforçar a consistência visual e integração
+com o ambiente GNOME. A figura \ref{gnome-hig-patterns} ilustra alguns dos
+padrões de design documentados pelo HIG.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \begin{center}
     \caption{\textbf{Padrões e suas aplicações}}
     \label{gnome-hig-patterns}
@@ -255,14 +262,14 @@ documentados pelo HIG.
 
 Dentre os objetivos do HIG estão a transmissão das metas de design de alto nível
 e estratégicas da experiência GNOME e a comunicação das diretrizes de design
-essenciais, de uma forma clara, e viva, acompanhando a evolução da plataforma
-\citeonline{day2015wiki}.
+essenciais, de uma forma clara e viva, acompanhando a evolução da plataforma.
 
 \section{Estudo de caso: Transmission}
 
 Um aplicativo famoso disponível para a plataforma GNOME é o cliente de
-BitTorrent Transmission \cite{transmission282}. Aclamado pela sua simplicidade,
-o aplicativo é utilizado para compartilhar arquivos através da internet.
+\textit{BitTorrent} Transmission \cite{transmission282}. Aclamado pela sua
+simplicidade, o aplicativo é utilizado para compartilhar arquivos através da
+internet.
 
 Utilizando-se de uma configuração padrão funcional e poucos cliques para
 configurar funcionalidades avançadas a utilização do cliente de torrent
@@ -273,11 +280,11 @@ A primeira versão do Transmission foi lançada em Setembro de 2005, já com uma
 interface gráfica baseada em GTK+, projetada sob as recomendação do HIG
 da época, publicada digitalmente em formato de livro \cite{gnome221hig}.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \begin{center}
     \caption{\textbf{Transmission 2.28 no GNOME 3.16}}
     \includegraphics [width=\textwidth]{image/transmission/282-master/main-window.png}
     \label{transmission-master}
-    \fonte{Do autor}
+    \fonte{Do Autor (2015)}
   \end{center}
 \end{figure}
