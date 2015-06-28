@@ -1,7 +1,7 @@
 TEXMAIN=index
-PAPER="a-new-gtk+3-experience-for-transmission-torrent-client"
-BIBTEX=bibtex
-PDFLATEX=pdflatex
+PAPER=a-gtk+3-experience-for-transmission-torrent-client
+BIBTEX=bibtex -terse
+PDFLATEX=texfot pdflatex
 
 test:
 	@[[ `which $(PDFLATEX)` ]] || echo $(PDFLATEX) not found
@@ -14,9 +14,9 @@ bib:
 	$(BIBTEX) $(TEXMAIN)
 
 pdf:
-	$(PDFLATEX) $(TEXMAIN)
+	$(PDFLATEX) -draftmode $(TEXMAIN)
 	$(BIBTEX) $(TEXMAIN)
-	$(PDFLATEX) $(TEXMAIN)
+	$(PDFLATEX) -draftmode $(TEXMAIN)
 	$(PDFLATEX) $(TEXMAIN)
 
 read:
