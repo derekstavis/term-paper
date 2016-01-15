@@ -1,6 +1,6 @@
 \chapter{REVISÃO DA LITERATURA}
 
-O desenvolvimento de mecanismos que automatizam tarefas existe desde a idade das
+O desenvolvimento de mecanismos que facilitam tarefas existe desde a idade das
 pedras, onde hominídeos produziam ferramentas para auxílio próprio. A
 transversalidade do conhecimento e da experimentação nos levou a descoberta de
 novas metodologias e o aperfeiçoamento de técnicas, consequentemente modificando
@@ -169,10 +169,9 @@ por uma comunidade de engenheiros de software ao redor do mundo.
     fundação independente, e sem fins lucrativos \cite{gnome-org}.
 \end{citacao}
 
-Muito mais que um gerenciador de janelas, a experiência GNOME é construída por
-um conjunto de aplicações centrais, que incluem um gerenciador de janelas, um
-lançador de aplicações e diversos aplicativos centrais, como calculadora,
-editor de texto, gerenciadores de arquivos, redes, contatos, etc.
+A experiência GNOME é construída por um conjunto de aplicações centrais, que
+incluem um gerenciador de janelas, um lançador de aplicações, calculadora,
+editor de texto, gerenciadores de arquivos, contatos, etc.
 
 \begin{figure}[!ht]
   \begin{center}
@@ -193,7 +192,7 @@ completas de aplicativos \cite{gtk-org}.
 
 Uma das característica das plataformas de código aberto é a distribuição de
 esforços em prol do constante desenvolvimento e melhoria. A pluralidade de
-opiniões e idéias eleva o patamar das discussões e permite com que vários pontos
+opiniões e ideias eleva o patamar das discussões e permite com que vários pontos
 de vista sejam levados em consideração na evolução da plataforma.
 
 Apesar dos prós existentes na distribuição de esforços também existem os contras
@@ -264,20 +263,28 @@ Dentre os objetivos do HIG estão a transmissão das metas de design de alto ní
 e estratégicas da experiência GNOME e a comunicação das diretrizes de design
 essenciais, de uma forma clara e viva, acompanhando a evolução da plataforma.
 
-\section{Estudo de caso: Transmission}
+\section{Transmission}
 
 Um aplicativo famoso disponível para a plataforma GNOME é o cliente de
 \textit{BitTorrent} Transmission \cite{transmission282}. Aclamado pela sua
 simplicidade, o aplicativo é utilizado para compartilhar arquivos através da
-internet.
+Internet.
+
+A funcionalidade básica de um cliente de torrent como o Transmission é
+interpretar um arquivo que representa uma transferência (chamado de torrent), e
+transferir os arquivos nele contidos.
+
+Transferências do tipo torrent dividem arquivos em múltiplas partes,
+paralelizando o processo ao transferir de múltiplos pontos, além de serem de via
+dupla -- partes já recebidas também são enviadas para outros clientes
+interessados no arquivo.
 
 Utilizando-se de uma configuração padrão funcional e poucos cliques para
 configurar funcionalidades avançadas a utilização do cliente de torrent
-Transmission foi projetada para ser fácil e poderosa
-\cite{transmission-about}.
+Transmission foi projetada para ser fácil e poderosa \cite{transmission-about}.
 
 A primeira versão do Transmission foi lançada em Setembro de 2005, já com uma
-interface gráfica baseada em GTK+, projetada sob as recomendação do HIG
+interface gráfica baseada em GTK+, projetada sob as recomendações do HIG
 da época, publicada digitalmente em formato de livro \cite{gnome221hig}.
 
 \begin{figure}[!ht]
@@ -288,3 +295,23 @@ da época, publicada digitalmente em formato de livro \cite{gnome221hig}.
     \fonte{Do Autor (2015)}
   \end{center}
 \end{figure}
+
+Como pode ser visto na \autoref{transmission-master}, a janela principal do
+Transmission é composta por uma barra de menus sensível a seleção e uma lista de
+todas transferências, onde cada ítem exibe suas informações básicas, atualizadas
+constantemente: Nome, progresso, quantidade de pontos, velocidade de
+recebimento, velocidade de envio. Além de exibir todas transferências, o
+Transmission também permite filtrá-las por estado: Recebendo, enviando, pausada,
+etc.
+
+Como as transferências podem consumir grande quantidade de dados, outros
+aplicativos que necessitam de rede podem ser afetados, por exemplo: Uma página
+da web pode demorar mais para carregar. Para isso o Transmission permite impor
+limites de velocidade no recebimento e envio, de forma global -- qual é
+utilizada o tempo todo pelo cliente, ou temporariamente -- qual pode ser ativada
+e desativada ao clique de um botão.
+
+Funcionalidades avançadas incluem pausar transferências ao atingir uma
+determinada razão de recebimento/envio, monitorar diretórios por arquivo torrent
+e adicioná-los como transferências automaticamente, verificar as condições de
+rede necessárias para uma performance ótima, dentre outras.

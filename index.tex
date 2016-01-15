@@ -20,6 +20,7 @@
 \usepackage{microtype}      % para melhorias de justificação
 \usepackage{listings}       % para inserir código fonte
 \usepackage{graphicx}       % para inserir imagens
+\usepackage{enumitem}
 
 % Pacotes de citações
 \usepackage[brazilian,hyperpageref]{backref} % Paginas com as citações na bibl
@@ -68,20 +69,20 @@
 \titulo{\uppercase{Uma proposta de interface do cliente de torrent Transmission
                    baseado no GTK HIG 3.14}}
 \autor{\uppercase{Derek Willian Stavis}}
-\orientador{Luciana Schmitz}
+\orientador{Prof. Luciana Schmitz, Esp. (SENAI/SC)}
 \orientadortcc{Prof. \imprimirorientador, Dr. (SENAI/SC)}
 \coordenador{Prof. Luciana Schmitz, Esp. (SENAI/SC)}
 \coordenadortcc{Profa. Aline Cristina Antonelli de Oliveira, Esp. (SENAI/SC)}
-\examinador{Prof. Fulado de tal, Me. (SENAI/SC)}
+\examinador{Prof. João Carlos Testi Ferreira, Esp. (SENAI/SC)}
 \preambulo{Trabalho de Conclusão de Curso apresentado à Banca Examinadora do
            Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas
            da Faculdade de Tecnologia do SENAI Florianópolis como requisito
            parcial para obtenção do Grau de Tecnólogo em Análise e
            Desenvolvimento de Sistemas.}
 \proforientador{Professor Orientador: \imprimirorientador.}
-\datadefesa{\uppercase{28 de Novembro de 2014}}
+\datadefesa{\uppercase{18 de Dezembro de 2015}}
 \local{Florianópolis/SC}
-\data{2014}
+\data{2015}
 
 \instituicao{%
   SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL
@@ -158,7 +159,7 @@
     \vspace*{\fill}
         \imprimirpreambulo
     \vspace*{\fill}
-        
+
    APROVADA PELA {\bfseries{COMISSÃO EXAMINADORA}}
    \par
    EM FLORIANÓPOLIS, \bfseries{\imprimirdatadefesa}
@@ -202,24 +203,28 @@
 
 \chapter{INTRODUÇÃO}
 
-O lançamento de um guia de padrões para o desenvolvimento de interfaces gráficas
-orientadas ao ambiente gráfico GNOME foi de suma importância para alinhar
-desenvolvedores ao intuito deste ambiente gráfico de código aberto.
+O GNOME é um ambiente gráfico similar aos apresentados pelo Microsoft Windows e
+Apple OS X. Com uma experiência de usuário única, o GNOME, diferente de seus
+similares proprietários, é mantido por uma comunidade de desenvolvedores aberta
+e sua licença de código-fonte permite que virtualmente qualquer pessoa no mundo
+possa estudar ou modificar seu funcionamento.
 
-O guia contribui para que o GNOME passe a ter mais harmonia visual, seja através
-dos aplicativos centrais -- os primeiros a receber tratamento estético -- ou
-por aplicativos de terceiros, que devem se adaptar utilizando o guia como
-referência.
+O lançamento de um guia oficial de padrões para o desenvolvimento de interfaces
+gráficas orientadas ao GNOME foi de suma importância para alinhar
+desenvolvedores aos objetivos do ambiente gráfico. O guia procura trazer
+harmonia visual conforme sua implementação, seja através dos aplicativos
+centrais -- os primeiros a receber tratamento estético -- ou por aplicativos de
+terceiros, que devem se adaptar utilizando o guia como referência.
 
 Aplicativos que não se adequam ao guia passam a apresentar-se defasados,
-perdendo pontos em usabilidade e em beleza, aumentando a taxa de rejeição.
+perdendo pontos em usabilidade e estética, aumentando a taxa de rejeição.
 Mantenedores de aplicativos baseados no \textit{toolkit} GTK+ devem, portanto,
 dedicar atenção para o fator usabilidade, mantendo-se compatível com o progresso
 da plataforma GNOME.
 
 Um aplicativo que sofre deste efeito e necessita dedicação é o Transmission, um
-cliente de \textit{torrent} popular, que foi desenvolvido na era GTK+ 2, onde os
-requisitos, recursos e a visão da plataforma GNOME eram diferentes
+cliente de \textit{torrent} popular, que foi desenvolvido na era GTK+ versão 2,
+onde os requisitos, recursos e visão da plataforma GNOME eram diferentes
 \cite{gnome221hig}.
 
 \section{OBJETIVOS}
@@ -228,12 +233,12 @@ requisitos, recursos e a visão da plataforma GNOME eram diferentes
 
 Propor adaptações na interface gráfica GTK+ do cliente de torrent Transmission
 através da análise de casos de uso de aplicativos centrais da plataforma GNOME,
-versão 3.16 acordo com as recomendações do HIG versão 3.14, trazendo mais
+versão 3.16, e de acordo com as recomendações do HIG versão 3.14, trazendo mais
 harmonia para seus utilizadores na plataforma GNOME.
 
 \subsection{Objetivos específicos}
 
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
   \item Comparar dados evolutivos da interface de aplicações centrais do GNOME.
   \item Identificar pontos de redesign na janela principal do Transmission.
   \item Propor adaptações na interface do Transmission.
